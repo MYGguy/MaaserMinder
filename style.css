@@ -25,4 +25,7 @@ button {
 
 #keypad {
     font-size: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
