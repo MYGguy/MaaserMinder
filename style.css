@@ -13,10 +13,14 @@ div {
     font-size: 50px;
 }
 
-button {
+.plusMinusButton {
     width: 100px;
     height: 100px;
     font-size: 50px
+}
+
+#submit {
+    font-size: 50px;
 }
 
 #plusHistory {
