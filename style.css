@@ -8,9 +8,9 @@ div {
 }
 
 #amount {
-    width: 200px;
-    height: 100px;
-    font-size: 50px;
+    width: 100px;
+    height: 40px;
+    font-size: 25px;
 }
 
 .plusMinusButton {
@@ -34,7 +34,7 @@ div {
 }
 
 #keypad {
-    font-size: 85px;
+    font-size: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
