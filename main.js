@@ -1,10 +1,3 @@
-/*function updateNumber() {
-    document.getElementById("amount").innerHTML = 5;
-}
-*/
-
-//const keypad = document.getElementById("button1");
-
 document.addEventListener("DOMContentLoaded", () => {
     const amount = document.getElementById("amount");
     const keys = document.querySelectorAll(".key")
@@ -18,6 +11,3 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 })
 })
-
-
-//keypad.addEventListener("click", updateNumber);
