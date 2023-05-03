@@ -11,3 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 })
 })
+
+let pht = document.getElementById("plusHistoryTable");
+
+function submitButton() {
+    pht.innerHTML = amount.value;
+}
