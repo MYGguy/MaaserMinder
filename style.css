@@ -39,3 +39,7 @@ div {
     justify-content: center;
     align-items: center;
 }
+
+#buttonDelete {
+    font-size: 60px;
+}
