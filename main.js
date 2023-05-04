@@ -9,15 +9,26 @@ document.addEventListener("DOMContentLoaded", () => {
     
     amount.value = "$";
     
+    let inputSequence = [];
+    
     keys.forEach(key => {
     key.addEventListener("click", () => {
         const value = key.getAttribute("data-value");
-        amount.value += value;
+        //amount.value += value;
+        inputSequence.push(value);
+        console.log(inputSequence);
+        amount.value = "$" + inputSequence.join("");
     })
     
     deleteKey.addEventListener("click", () => {
-        if (amount.value.length > 1) {
+        /*if (amount.value.length > 1) {
             amount.value = amount.value.slice(0, -1);
+            
+        }*/
+        
+        if (inputSequence.length > 0) {
+            inputSequence.pop();
+            amount.value = "$" + inputSequence.join("");
         }
     })
 })
@@ -34,6 +45,11 @@ function submitButton() {
    total.innerHTML = "$" + runningTotal;
    
    amount.value = "$";
+   inputSequence = [];
+   runningTotal = 0;
+   console.log("inputSequence" + inputSequence)
+   console.log("amount.value" + amount.value)
+   console.log("runningTotal" + runningTotal)
 };
 
 //TODO backspace
