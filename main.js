@@ -17,3 +17,7 @@ let pht = document.getElementById("plusHistoryTable");
 function submitButton() {
     pht.innerHTML = amount.value;
 }
+
+//TODO update h1 total
+//TODO clear input after submit
+//TODO backspace
