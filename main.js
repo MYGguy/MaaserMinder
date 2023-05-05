@@ -15,12 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
         amount.value += value;
     })
     
-    deleteKey.addEventListener("click", () => {
+})
+
+deleteKey.addEventListener("click", () => {
         if (amount.value.length > 1) {
             amount.value = amount.value.slice(0, -1);
         }
     })
-})
 })
 
 let pht = document.getElementById("plusHistoryTable");
