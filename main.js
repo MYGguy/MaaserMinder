@@ -4,6 +4,8 @@ let runningTotal = 0;
 
 let pht = document.getElementById("plusHistoryTable");
 
+let plusHistoryNumbers = [];
+
 // Keypad buttons
 document.addEventListener("DOMContentLoaded", () => {
     const amount = document.getElementById("amount");
@@ -29,10 +31,39 @@ deleteKey.addEventListener("click", () => {
     })
 })
 
+function addToPlusHistory() {
+   //pht.innerHTML += amount.value;
+   //pht.innerHTML = plusHistory;
+   
+   const table = document.createElement("table");
+   const tbody = document.createElement("tbody");
+   
+   
+   plusHistoryNumbers.forEach((number) => {
+       const tr = document.createElement("tr");
+       const td = document.createElement("td");
+       
+       td.textContent = number;
+       tr.appendChild(td);
+       
+       tbody.appendChild(tr);
+       
+       
+   })
+   table.appendChild(tbody);
+   //pht.appendChild(table);
+   //pht.appendChild(tr);
+   pht.innerHTML = table.outerHTML;
+   console.log(plusHistoryTable);
+   
+}
+
 // Submit button
 function submitButton() {
-   // Add to history
-   pht.innerHTML = amount.value;
+// Add to plus history
+   plusHistoryNumbers.push(amount.value);
+   console.log(plusHistoryNumbers);
+   addToPlusHistory();
     
    let inputValue = parseInt(amount.value.substring(1));
     
