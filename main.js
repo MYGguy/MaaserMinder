@@ -32,9 +32,6 @@ deleteKey.addEventListener("click", () => {
 })
 
 function addToPlusHistory() {
-   //pht.innerHTML += amount.value;
-   //pht.innerHTML = plusHistory;
-   
    const table = document.createElement("table");
    const tbody = document.createElement("tbody");
    
@@ -51,10 +48,8 @@ function addToPlusHistory() {
        
    })
    table.appendChild(tbody);
-   //pht.appendChild(table);
-   //pht.appendChild(tr);
    pht.innerHTML = table.outerHTML;
-   console.log(plusHistoryTable);
+   //console.log(plusHistoryTable);
    
 }
 
@@ -73,4 +68,4 @@ function submitButton() {
    amount.value = "$";
 };
 
-//TODO add multiple history rows
+//TODO history backwards 
