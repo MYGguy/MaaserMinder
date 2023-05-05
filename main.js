@@ -2,6 +2,9 @@ const total = document.getElementById("total");
 
 let runningTotal = 0;
 
+let pht = document.getElementById("plusHistoryTable");
+
+// Keypad buttons
 document.addEventListener("DOMContentLoaded", () => {
     const amount = document.getElementById("amount");
     const keys = document.querySelectorAll(".key")
@@ -9,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     amount.value = "$";
     
+    // Update input field value
     keys.forEach(key => {
     key.addEventListener("click", () => {
         const value = key.getAttribute("data-value");
@@ -17,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
 })
 
+// Delete button
 deleteKey.addEventListener("click", () => {
         if (amount.value.length > 1) {
             amount.value = amount.value.slice(0, -1);
@@ -24,9 +29,9 @@ deleteKey.addEventListener("click", () => {
     })
 })
 
-let pht = document.getElementById("plusHistoryTable");
-
+// Submit button
 function submitButton() {
+   // Add to history
    pht.innerHTML = amount.value;
     
    let inputValue = parseInt(amount.value.substring(1));
@@ -37,5 +42,4 @@ function submitButton() {
    amount.value = "$";
 };
 
-//TODO backspace
 //TODO add multiple history rows
