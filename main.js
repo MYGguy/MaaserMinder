@@ -1,7 +1,6 @@
 const total = document.getElementById("total");
 
-let plusRunningTotal = 0;
-let minusRunningTotal = 0;
+let runningTotal = 0;
 
 let pht = document.getElementById("plusHistoryTable");
 let mht = document.getElementById("minusHistoryTable");
@@ -36,21 +35,23 @@ deleteKey.addEventListener("click", () => {
 
 // Submit button
 function submitButton(plusOrMinus) {
-// Add to plus history
-   //addToPlusHistory();
-
 // add to total
    let inputValue = parseInt(amount.value.substring(1));
+  //let totalValue = parseInt(total.value.substring(1));
     
-    if (plusOrMinus = "plus") {
-    
-   plusRunningTotal += inputValue;
-   total.innerHTML = "$" + plusRunningTotal;
-    } else if (plusOrMinus = "minus") {
-        minusRunningTotal += inputValue;
-   total.innerHTML = "$" + minusRunningTotal;
+    if (plusOrMinus === "plus") {
+   runningTotal += inputValue;
+   total.innerHTML = "$" + runningTotal;
+   console.log("you pressed plus");
+    } 
+// minus from total
+    else if(plusOrMinus === "minus") {
+        runningTotal -= inputValue;
+   total.innerHTML = "$" + runningTotal;
+   console.log("you pressed minus");
     }
-   
+   console.log("running total: " + runningTotal);
+   //console.log(totalValue);
    amount.value = "$";
 };
 
