@@ -64,13 +64,15 @@ function addToHistory(plusOrMinusNumbers, plusOrMinusTable, plusOrMinus) {
    plusOrMinusNumbers.unshift(amount.value);
    
    plusOrMinusNumbers.forEach((number) => {
+       
+       const formattedNumber = parseFloat(number.substring(1)).toFixed(2);
        const tr = document.createElement("tr");
        const td = document.createElement("td");
        
        if (plusOrMinus === "plus") {
-       td.textContent = number;
+       td.textContent = "$" + formattedNumber;
        } else {
-           td.textContent = "-" + number;
+           td.textContent = "-" + "$" + formattedNumber;
        }
        tr.appendChild(td);
        
