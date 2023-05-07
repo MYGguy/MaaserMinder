@@ -89,4 +89,4 @@ function addToHistory(plusOrMinusNumbers, plusOrMinusTable, plusOrMinus) {
     } else {
         return;
     }
-}
+} 
