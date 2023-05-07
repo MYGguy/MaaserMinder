@@ -142,6 +142,7 @@ function resetState() {
     plusHistoryNumbers = [];
     minusHistoryNumbers = [];
     runningTotal = 0;
+    amount.value = "$";
 
     updateUI();
 }
