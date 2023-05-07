@@ -36,18 +36,17 @@ deleteKey.addEventListener("click", () => {
 // Submit button
 function submitButton(plusOrMinus) {
 // add to total
-   let inputValue = parseInt(amount.value.substring(1));
-  //let totalValue = parseInt(total.value.substring(1));
-    
+   let inputValue = parseFloat(amount.value.substring(1));
+   
     if (plusOrMinus === "plus") {
    runningTotal += inputValue;
-   total.innerHTML = "$" + runningTotal;
+   total.innerHTML = "$" + runningTotal.toFixed(2);
    console.log("you pressed plus");
     } 
 // minus from total
     else if(plusOrMinus === "minus") {
         runningTotal -= inputValue;
-   total.innerHTML = "$" + runningTotal;
+   total.innerHTML = "$" + runningTotal.toFixed(2);
    console.log("you pressed minus");
     }
    console.log("running total: " + runningTotal);
@@ -84,5 +83,3 @@ function addToHistory(plusOrMinusNumbers, plusOrMinusTable, plusOrMinus) {
    
    submitButton(plusOrMinus);
 }
-
-//BUG: decimal doesnt work
