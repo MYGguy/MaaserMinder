@@ -35,27 +35,29 @@ deleteKey.addEventListener("click", () => {
 
 // Submit button
 function submitButton(plusOrMinus) {
-// add to total
+// put into total
    let inputValue = parseFloat(amount.value.substring(1));
    
+// plus to total
     if (plusOrMinus === "plus") {
    runningTotal += inputValue;
    total.innerHTML = "$" + runningTotal.toFixed(2);
-   console.log("you pressed plus");
+   //console.log("you pressed plus");
     } 
+    
 // minus from total
     else if(plusOrMinus === "minus") {
         runningTotal -= inputValue;
    total.innerHTML = "$" + runningTotal.toFixed(2);
-   console.log("you pressed minus");
+   //console.log("you pressed minus");
     }
    console.log("running total: " + runningTotal);
-   //console.log(totalValue);
    amount.value = "$";
 };
 
 // add to history DRY function
 function addToHistory(plusOrMinusNumbers, plusOrMinusTable, plusOrMinus) {
+    if (amount.value != "$") {
    const table = document.createElement("table");
    const tbody = document.createElement("tbody");
    
@@ -82,4 +84,7 @@ function addToHistory(plusOrMinusNumbers, plusOrMinusTable, plusOrMinus) {
    //console.log(plusHistoryNumbers);
    
    submitButton(plusOrMinus);
+    } else {
+        return;
+    }
 }
