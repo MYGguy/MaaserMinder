@@ -66,7 +66,11 @@ function addToHistory(plusOrMinusNumbers, plusOrMinusTable, plusOrMinus) {
        const tr = document.createElement("tr");
        const td = document.createElement("td");
        
+       if (plusOrMinus === "plus") {
        td.textContent = number;
+       } else {
+           td.textContent = "-" + number;
+       }
        tr.appendChild(td);
        
        tbody.appendChild(tr);
