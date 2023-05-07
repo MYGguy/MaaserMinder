@@ -68,4 +68,5 @@ function submitButton() {
    amount.value = "$";
 };
 
-//TODO history backwards 
+//TODO history backwards
+//TODO press numbers, then + or - yo submit to proper history
