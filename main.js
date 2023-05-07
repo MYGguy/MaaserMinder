@@ -1,6 +1,7 @@
 const total = document.getElementById("total");
 
-let runningTotal = 0;
+let plusRunningTotal = 0;
+let minusRunningTotal = 0;
 
 let pht = document.getElementById("plusHistoryTable");
 let mht = document.getElementById("minusHistoryTable");
@@ -34,21 +35,27 @@ deleteKey.addEventListener("click", () => {
 })
 
 // Submit button
-function submitButton() {
+function submitButton(plusOrMinus) {
 // Add to plus history
    //addToPlusHistory();
 
 // add to total
    let inputValue = parseInt(amount.value.substring(1));
     
-   runningTotal += inputValue;
-   total.innerHTML = "$" + runningTotal;
+    if (plusOrMinus = "plus") {
+    
+   plusRunningTotal += inputValue;
+   total.innerHTML = "$" + plusRunningTotal;
+    } else if (plusOrMinus = "minus") {
+        minusRunningTotal += inputValue;
+   total.innerHTML = "$" + minusRunningTotal;
+    }
    
    amount.value = "$";
 };
 
 // add to history DRY function
-function addToHistory(plusOrMinusNumbers, plusOrMinusTable) {
+function addToHistory(plusOrMinusNumbers, plusOrMinusTable, plusOrMinus) {
    const table = document.createElement("table");
    const tbody = document.createElement("tbody");
    
@@ -70,34 +77,7 @@ function addToHistory(plusOrMinusNumbers, plusOrMinusTable) {
    //console.log(plusHistoryTable);
    //console.log(plusHistoryNumbers);
    
-   submitButton();
-   
-}
-
-// add to plus history
-function addToPlusHistory() {
-   const table = document.createElement("table");
-   const tbody = document.createElement("tbody");
-   
-   plusHistoryNumbers.unshift(amount.value);
-   
-   plusHistoryNumbers.forEach((number) => {
-       const tr = document.createElement("tr");
-       const td = document.createElement("td");
-       
-       td.textContent = number;
-       tr.appendChild(td);
-       
-       tbody.appendChild(tr);
-       
-       
-   })
-   table.appendChild(tbody);
-   pht.innerHTML = table.outerHTML;
-   console.log(plusHistoryTable);
-   console.log(plusHistoryNumbers);
-   
-   submitButton();
+   submitButton(plusOrMinus);
    
 }
 
