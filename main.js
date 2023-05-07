@@ -79,7 +79,6 @@ function addToHistory(plusOrMinusNumbers, plusOrMinusTable, plusOrMinus) {
    //console.log(plusHistoryNumbers);
    
    submitButton(plusOrMinus);
-   
 }
 
 //TODO press numbers, then + or - yo submit to proper history
