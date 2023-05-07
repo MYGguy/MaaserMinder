@@ -3,8 +3,10 @@ const total = document.getElementById("total");
 let runningTotal = 0;
 
 let pht = document.getElementById("plusHistoryTable");
+let mht = document.getElementById("minusHistoryTable");
 
 let plusHistoryNumbers = [];
+let minusHistoryNumbers = [];
 
 // Keypad buttons
 document.addEventListener("DOMContentLoaded", () => {
@@ -44,6 +46,33 @@ function submitButton() {
    
    amount.value = "$";
 };
+
+// add to history DRY function
+function addToHistory(plusOrMinusNumbers, plusOrMinusTable) {
+   const table = document.createElement("table");
+   const tbody = document.createElement("tbody");
+   
+   plusOrMinusNumbers.unshift(amount.value);
+   
+   plusOrMinusNumbers.forEach((number) => {
+       const tr = document.createElement("tr");
+       const td = document.createElement("td");
+       
+       td.textContent = number;
+       tr.appendChild(td);
+       
+       tbody.appendChild(tr);
+       
+       
+   })
+   table.appendChild(tbody);
+   plusOrMinusTable.innerHTML = table.outerHTML;
+   //console.log(plusHistoryTable);
+   //console.log(plusHistoryNumbers);
+   
+   submitButton();
+   
+}
 
 // add to plus history
 function addToPlusHistory() {
