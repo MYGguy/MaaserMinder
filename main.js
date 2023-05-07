@@ -34,7 +34,7 @@ deleteKey.addEventListener("click", () => {
 // Submit button
 function submitButton() {
 // Add to plus history
-   addToPlusHistory();
+   //addToPlusHistory();
 
 // add to total
    let inputValue = parseInt(amount.value.substring(1));
@@ -65,8 +65,10 @@ function addToPlusHistory() {
    })
    table.appendChild(tbody);
    pht.innerHTML = table.outerHTML;
-   //console.log(plusHistoryTable);
-   //console.log(plusHistoryNumbers);
+   console.log(plusHistoryTable);
+   console.log(plusHistoryNumbers);
+   
+   submitButton();
    
 }
 
