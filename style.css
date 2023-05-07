@@ -43,3 +43,8 @@ div {
 #buttonDelete {
     font-size: 60px;
 }
+
+#restoreState {
+    height: 50px;
+    width: 50px;
+}

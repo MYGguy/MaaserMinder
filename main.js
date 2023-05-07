@@ -8,11 +8,44 @@ let mht = document.getElementById("minusHistoryTable");
 let plusHistoryNumbers = [];
 let minusHistoryNumbers = [];
 
+// update the ui
+function updateUI() {
+    // Update the total display
+    total.innerHTML = "$" + runningTotal.toFixed(2);
+
+    // Update the plus history table
+    updateHistoryTable(plusHistoryNumbers, plusHistoryTable, "plus");
+
+    // Update the minus history table
+    updateHistoryTable(minusHistoryNumbers, minusHistoryTable, "minus");
+}
+
+// Save the state
+function saveState() {
+    localStorage.setItem("plusHistoryNumbers", JSON.stringify(plusHistoryNumbers));
+    localStorage.setItem("minusHistoryNumbers", JSON.stringify(minusHistoryNumbers));
+    localStorage.setItem("runningTotal", runningTotal);
+}
+
+// Load the state
+function restoreState() {
+    // JSON.parse to convert the stored JSON string back into an array
+    plusHistoryNumbers = JSON.parse(localStorage.getItem("plusHistoryNumbers")) || [];
+    minusHistoryNumbers = JSON.parse(localStorage.getItem("minusHistoryNumbers")) || [];
+
+    // parseFloat to convert the stored string value of runningTotal back into a number
+    runningTotal = parseFloat(localStorage.getItem("runningTotal")) || 0;
+    
+    updateUI();
+}
+
 // Keypad buttons
 document.addEventListener("DOMContentLoaded", () => {
     const amount = document.getElementById("amount");
     const keys = document.querySelectorAll(".key")
     const deleteKey = document.getElementById("buttonDelete");
+    
+    restoreState();
     
     amount.value = "$";
     
@@ -55,15 +88,28 @@ function submitButton(plusOrMinus) {
    amount.value = "$";
 };
 
+// main function when button is pressed
+function addToHistory(plusOrMinusNumbers, plusOrMinusTable, plusOrMinus, restore) {
+    if (amount.value !== "$" || restore) {
+        plusOrMinusNumbers.unshift(amount.value);
+        if (!restore) {
+            submitButton(plusOrMinus);
+        }
+    }
+    
+    updateHistoryTable(plusOrMinusNumbers, plusOrMinusTable, plusOrMinus, restore);
+    
+ if (!restore) {
+    saveState();
+    }
+}
+
 // add to history DRY function
-function addToHistory(plusOrMinusNumbers, plusOrMinusTable, plusOrMinus) {
-    if (amount.value != "$") {
+function updateHistoryTable(plusOrMinusNumbers, plusOrMinusTable, plusOrMinus, restore) {
    const table = document.createElement("table");
    const tbody = document.createElement("tbody");
    
-   plusOrMinusNumbers.unshift(amount.value);
-   
-   plusOrMinusNumbers.forEach((number) => {
+     plusOrMinusNumbers.forEach((number) => {
        
        const formattedNumber = parseFloat(number.substring(1)).toFixed(2);
        const tr = document.createElement("tr");
@@ -84,9 +130,17 @@ function addToHistory(plusOrMinusNumbers, plusOrMinusTable, plusOrMinus) {
    plusOrMinusTable.innerHTML = table.outerHTML;
    //console.log(plusHistoryTable);
    //console.log(plusHistoryNumbers);
-   
-   submitButton(plusOrMinus);
-    } else {
-        return;
-    }
-} 
+};
+
+// Reset state function
+function resetState() {
+    localStorage.removeItem("plusHistoryNumbers");
+    localStorage.removeItem("minusHistoryNumbers");
+    localStorage.removeItem("runningTotal");
+
+    plusHistoryNumbers = [];
+    minusHistoryNumbers = [];
+    runningTotal = 0;
+
+    updateUI();
+}
