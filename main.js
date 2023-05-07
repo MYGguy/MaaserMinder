@@ -85,4 +85,4 @@ function addToHistory(plusOrMinusNumbers, plusOrMinusTable, plusOrMinus) {
    submitButton(plusOrMinus);
 }
 
-//TODO press numbers, then + or - yo submit to proper history
+//BUG: decimal doesnt work
