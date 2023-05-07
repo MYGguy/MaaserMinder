@@ -106,6 +106,7 @@ function addToHistory(plusOrMinusNumbers, plusOrMinusTable, plusOrMinus, restore
 
 // add to history DRY function
 function updateHistoryTable(plusOrMinusNumbers, plusOrMinusTable, plusOrMinus, restore) {
+
    const table = document.createElement("table");
    const tbody = document.createElement("tbody");
    
