@@ -31,9 +31,26 @@ deleteKey.addEventListener("click", () => {
     })
 })
 
+// Submit button
+function submitButton() {
+// Add to plus history
+   addToPlusHistory();
+
+// add to total
+   let inputValue = parseInt(amount.value.substring(1));
+    
+   runningTotal += inputValue;
+   total.innerHTML = "$" + runningTotal;
+   
+   amount.value = "$";
+};
+
+// add to plus history
 function addToPlusHistory() {
    const table = document.createElement("table");
    const tbody = document.createElement("tbody");
+   
+   plusHistoryNumbers.unshift(amount.value);
    
    plusHistoryNumbers.forEach((number) => {
        const tr = document.createElement("tr");
@@ -49,24 +66,8 @@ function addToPlusHistory() {
    table.appendChild(tbody);
    pht.innerHTML = table.outerHTML;
    //console.log(plusHistoryTable);
-   console.log(plusHistoryNumbers);
+   //console.log(plusHistoryNumbers);
    
 }
 
-// Submit button
-function submitButton() {
-// Add to plus history
-   plusHistoryNumbers.unshift(amount.value);
-   addToPlusHistory();
-
-// add to total
-   let inputValue = parseInt(amount.value.substring(1));
-    
-   runningTotal += inputValue;
-   total.innerHTML = "$" + runningTotal;
-   
-   amount.value = "$";
-};
-
-//TODO history backwards
 //TODO press numbers, then + or - yo submit to proper history
