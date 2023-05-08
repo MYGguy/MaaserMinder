@@ -1,21 +1,28 @@
 body {
     font-size: 30pt;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
     background-image: linear-gradient(to bottom left, #ddf, #cee);
+    height: 2000px;
 }
 
 div {
     margin: 25px;
 }
 
+#total {
+	
+}
+
 #amount {
-    width: 190px;
-    height: 80px;
+    width: 200px;
+    height: 70px;
     font-size: 45px;
     text-align: center;
     border: none;
-    border-bottom: 3px solid black;
-    background-color: #eef;
+    border-radius: 50px;
+    /*background-color: #eef;*/
+    /*border-bottom: 3px solid black;*/
 }
 
 #mainPanel {
@@ -26,11 +33,12 @@ div {
 }
 
 .plusMinusButton {
-    width: 100px;
-    height: 500px;
-    font-size: 50px;
+    width: 120px;
+    height: 120px;
+    font-size: 90px;
     border: none;
-    background-color: #bdd;
+    border-radius: 50px;
+    background-color: #fff;
 }
 
 #keypad {
@@ -44,26 +52,33 @@ div {
 .key {
 	padding: 10px 30px;
 	/*border: 1px solid black;*/
-	background-color: #def;
+	background-color: rgba(255,255,255, 0.3);
 	border-radius: 65px;
 }
 
 #histories {
-	display: flex;
+	/*display: flex;
 	justify-content: center;
-	align-content: center;
+	align-content: center;*/
+	font-size: 75px;
 }
 
 #plusHistoryTable {
-    margin-left: 100px;
+	float: right;
+    margin-left: 0px;
+    margin-right: 60px;
 }
 
 #minusHistoryTable {
-    margin-right: 100px;
+	float: left;
+    margin-right: 0px;
+    margin-left: 60px;
 }
 
 #buttonDelete {
-    font-size: 60px;
+	font-weight: 1000;
+    font-size: 100px;
+    padding: 0;
 }
 
 #restoreState {
