@@ -152,4 +152,3 @@ function resetState() {
 }
 
 //TODO: percentage calculator
-//TODO: reset button prompt
