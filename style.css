@@ -13,14 +13,23 @@ div {
     font-size: 25px;
 }
 
+#mainPanel {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+
 .plusMinusButton {
     width: 100px;
     height: 100px;
     font-size: 50px
 }
 
-#submit {
-    font-size: 50px;
+#keypad {
+    font-size: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #histories {
@@ -30,18 +39,11 @@ div {
 }
 
 #plusHistoryTable {
-    margin-right: 100px;
-}
-
-#minusHistoryTable {
     margin-left: 100px;
 }
 
-#keypad {
-    font-size: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#minusHistoryTable {
+    margin-right: 100px;
 }
 
 #buttonDelete {
