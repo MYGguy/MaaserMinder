@@ -1,6 +1,7 @@
 body {
     font-size: 30pt;
     text-align: center;
+    background-image: linear-gradient(to bottom left, #ddf, #cee);
 }
 
 div {
@@ -14,6 +15,7 @@ div {
     text-align: center;
     border: none;
     border-bottom: 3px solid black;
+    background-color: #eef;
 }
 
 #mainPanel {
@@ -26,7 +28,8 @@ div {
 .plusMinusButton {
     width: 100px;
     height: 500px;
-    font-size: 50px
+    font-size: 50px;
+    border: none;
 }
 
 #keypad {
@@ -39,7 +42,8 @@ div {
 
 .key {
 	padding: 10px 30px;
-	border: 1px solid black;
+	/*border: 1px solid black;*/
+	background-color: #def;
 	border-radius: 65px;
 }
 
