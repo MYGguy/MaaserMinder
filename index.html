@@ -13,6 +13,8 @@
 <body>
     <h1 id="total">$</h1>
   <input id="amount" type="text"></input>
+  <div id="mainPanel">
+  	    	<button class="plusMinusButton" id="minus" onclick="addToHistory(minusHistoryNumbers, minusHistoryTable, 'minus')">-</button>
   <div id="keypad">
       <table>
           <tbody>
@@ -39,20 +41,15 @@
           </tbody>
       </table>
   </div>
-    <div id="plusMinus">
-    	<button class="plusMinusButton" id="minus" onclick="addToHistory(minusHistoryNumbers, minusHistoryTable, 'minus')">-</button>
+
     	<button class="plusMinusButton" id="plus" onclick="addToHistory(plusHistoryNumbers, plusHistoryTable, 'plus')">+</button>
-    </div>
+  </div>
   <button id="restoreState" onclick="resetState()">Reset</button>
   <div id="histories">
       <div id="plusHistoryTable">
       </div>
-      <div id="minusHistory">
-          <table>
-              <tbody id="minusHistoryTable">
-                  
-              </tbody>
-          </table></div>
+      <div id="minusHistoryTable">
+      </div>
   </div>
   <script src="main.js"></script>
 </body>

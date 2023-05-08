@@ -13,35 +13,30 @@ div {
     font-size: 60px;
 }
 
-.plusMinusButton {
-    width: 75px;
-    height: 75px;
-    font-size: 50px
-}
-
-#submit {
-    font-size: 50px;
-}
-
-#plusHistoryTable {
-    float: right;
-    margin-right: 200px;
-}
-
-#minusHistory {
-    float: left;
-    margin-left: 200px;
-}
-
-#keypad {
-    font-size: 100px;
+#mainPanel {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.plusMinusButton {
+    width: 75px;
+    height: 75px;
+    font-size: 50px;
+}
+
+#keypad {
+    font-size: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .key {
-	padding: 25px;
+    padding: 15px 40px;
+    border: 1px solid black;
+    border-radius: 75px;
 }
 
 #buttonDelete {
@@ -51,4 +46,20 @@ div {
 #restoreState {
     height: 50px;
     width: 50px;
+}
+
+#plusMinus {
+    display: flex;
+    width: 100%;
+}
+
+
+#histories {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+
+#plusHistoryTable {
+	
 }
