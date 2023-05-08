@@ -135,6 +135,7 @@ function updateHistoryTable(plusOrMinusNumbers, plusOrMinusTable, plusOrMinus, r
 
 // Reset state function
 function resetState() {
+	if (confirm("Are you sure you want to reset all?")) {
     localStorage.removeItem("plusHistoryNumbers");
     localStorage.removeItem("minusHistoryNumbers");
     localStorage.removeItem("runningTotal");
@@ -145,4 +146,10 @@ function resetState() {
     amount.value = "$";
 
     updateUI();
+	} else {
+		return;
+	}
 }
+
+//TODO: percentage calculator
+//TODO: reset button prompt
