@@ -105,18 +105,25 @@ function addToHistory(plusOrMinusNumbers, plusOrMinusTable, plusOrMinus, restore
 }
 
 //delete history button
-function deleteHistoryFunction(index, number) {
-//remove number from table
-	plusHistoryNumbers.splice(index, 1)
+function deleteHistoryFunction(index, number, plusOrMinus) {
+	if (plusOrMinus === 'plus') {
+//remove number from plus table
+	plusHistoryNumbers.splice(index, 1);
 	updateHistoryTable(plusHistoryNumbers, plusHistoryTable, 'plus');
 	
-//remove number from total
-runningTotal -= parseFloat(number.substring(1));
-total.innerHTML = "$" + runningTotal;
+	//remove number from total
+	runningTotal -= parseFloat(number.substring(1));
+	total.innerHTML = "$" + runningTotal;
+} else {
+	minusHistoryNumbers.splice(index, 1);
+	updateHistoryTable(minusHistoryNumbers, minusHistoryTable, 'minus');
+	runningTotal += parseFloat(number.substring(1));
+	total.innerHTML = "$" + runningTotal;
+}
 //console.log(runningTotal);
 
 	saveState();
-	updateUI();
+//??	updateUI();
 };
 
 //update history table 
@@ -135,7 +142,7 @@ function updateHistoryTable(plusOrMinusNumbers, plusOrMinusTable, plusOrMinus, r
 		const deleteBtn = document.createElement('button');
 		deleteBtn.textContent = 'X';
 		deleteBtn.id = 'deleteHistoryButton';
-		deleteBtn.addEventListener('click', function() { deleteHistoryFunction(index, number)});
+		deleteBtn.addEventListener('click', function() { deleteHistoryFunction(index, number, plusOrMinus)});
 
 //text to add to td
 		let textNode;
@@ -158,7 +165,7 @@ function updateHistoryTable(plusOrMinusNumbers, plusOrMinusTable, plusOrMinus, r
 	plusOrMinusTable.appendChild(table);
 	
 	//console.log(plusHistoryTable);
-	console.log("plus numbers: " + plusHistoryNumbers);
+	//console.log("plus numbers: " + plusHistoryNumbers);
 	//console.log("minus numbers: " + minusHistoryNumbers);
 };
 
