@@ -180,6 +180,7 @@ function resetState() {
 		minusHistoryNumbers = [];
 		runningTotal = 0;
 		amount.value = "$";
+		total.innerHTML = "$";
 
 		updateUI();
 	} else {
@@ -188,4 +189,3 @@ function resetState() {
 }
 
 //TODO: percentage calculator
-//TODO: delete histories 

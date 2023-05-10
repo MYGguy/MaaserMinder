@@ -15,7 +15,8 @@ div {
 
 #total {
 	font-size: 3em;
-	margin-bottom: 2vw;
+	margin-top: 6vw;
+	margin-bottom: 4vw;
 }
 
 #amount {
@@ -107,6 +108,7 @@ div {
 	
     height: 7vw;
     width: 7vw;
+    padding: 0;
     
     border: none;
     border-radius: 50px;
