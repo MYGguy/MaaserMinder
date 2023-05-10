@@ -1,28 +1,30 @@
 body {
-    font-size: 30pt;
+    font-size: 27pt;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
+    color: #333;
+    
     background-image: linear-gradient(to bottom left, #ddf, #cee);
-    height: 2000px;
+    
+    height: 100%;
 }
 
 div {
-    margin: 25px;
+    margin: 3vw;
 }
 
 #total {
-	
+	font-size: 3em;
+	margin-bottom: 2vw;
 }
 
 #amount {
-    width: 200px;
-    height: 70px;
-    font-size: 45px;
+    width: 25vw;
+    height: 7.5vw;
+    font-size: 1.35em;
     text-align: center;
     border: none;
     border-radius: 50px;
-    /*background-color: #eef;*/
-    /*border-bottom: 3px solid black;*/
 }
 
 #mainPanel {
@@ -33,36 +35,32 @@ div {
 }
 
 .plusMinusButton {
-    width: 120px;
-    height: 120px;
-    font-size: 90px;
+    width: 15vw;
+    height: 15vw;
+    font-size: 3em;
     border: none;
     border-radius: 50px;
     background-color: #fff;
 }
 
 #keypad {
-    font-size: 130px;
+    font-size: 4em;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0px 50px;
+    margin: 0 5vw;
 }
 
 .key, .delete {
-	padding: 10px 30px;
-	/*border: 1px solid black;*/
+	text-align: center;
+	padding: 1vw 3vw;
 	background-color: rgba(255,255,255, 0.3);
 	border-radius: 65px;
-	margin: 500px;
 }
 
 #histories {
-	/*display: flex;
-	justify-content: center;
-	align-content: center;*/
-	font-size: 75px;
-	height: 750px;
+	font-size: 2em;
+	height: 40vh;
 	background-color: rgba(255,255,255, 0.3);
 	border-radius: 50px;
 	text-align: left;
@@ -70,44 +68,46 @@ div {
 
 #plusHistoryTable {
 	float: right;
-    margin-left: 0px;
-    margin-right: 60px;
+    margin-left: 0;
+    margin-right: 7vw;
 }
 
 #minusHistoryTable {
 	float: left;
-    margin-right: 0px;
-    margin-left: 60px;
+    margin-right: 0;
+    margin-left: 7vw;
 }
 
 #deleteHistoryButton {
-	height: 50px;
-	width: 50px;
+	height: 4vw;
+	width: 4vw;
 	
 	border: none;
 	background-color: rgba(255,255,255, 0.5);
 	border-radius: 50px;
 	
-	font-size: 20px;
+	font-size: 0.25em;
 	font-weight: 1000;
 	color: #333;
 	
-	margin-left: 5px;
+	margin-left: 1vw;
 	vertical-align: middle;
 }
 
 #buttonDelete {
 	font-weight: 1000;
-    font-size: 100px;
+    font-size: .8em;
     padding: 0;
 }
 
 #restoreState {
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-	font-size: 20px;
+	font-size: .5em;
 	font-weight: 500;
-    height: 75px;
-    width: 75px;
+	
+    height: 7vw;
+    width: 7vw;
+    
     border: none;
     border-radius: 50px;
     background-color: rgba(255,150,200, 0.3);
