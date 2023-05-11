@@ -67,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 // Submit button
+//#3
 function submitButton(plusOrMinus) {
 	// put into total
 	let inputValue = parseFloat(amount.value.substring(1));
@@ -84,14 +85,29 @@ function submitButton(plusOrMinus) {
 		total.innerHTML = "$" + runningTotal.toFixed(2);
 		//console.log("you pressed minus");
 	}
-	//console.log("running total: " + runningTotal);
+		
+	// plus percentage
+	else if (plusOrMinus === "perc10") {
+		runningTotal += inputValue * 0.1;
+		total.innerHTML = "$" + runningTotal.toFixed(2);
+	}
+	console.log("running total: " + runningTotal);
+	console.log("plushistorynumbers: " + plusHistoryNumbers);
+	
 	amount.value = "$";
 };
 
 // main function when button is pressed
+//#1
 function addToHistory(plusOrMinusNumbers, plusOrMinusTable, plusOrMinus, restore) {
 	if (amount.value !== "$" || restore) {
-		plusOrMinusNumbers.unshift(amount.value);
+		if (plusOrMinus === 'perc10') {
+			x = parseFloat(amount.value.substring(1)) * 0.1;
+			plusOrMinusNumbers.unshift(x.toFixed(2));
+			console.log("perc10 number: " + x);
+		} else {
+			plusOrMinusNumbers.unshift(amount.value.substring(1));
+		}
 		if (!restore) {
 			submitButton(plusOrMinus);
 		}
@@ -106,18 +122,19 @@ function addToHistory(plusOrMinusNumbers, plusOrMinusTable, plusOrMinus, restore
 
 //delete history button
 function deleteHistoryFunction(index, number, plusOrMinus) {
-	if (plusOrMinus === 'plus') {
+	if (plusOrMinus === 'plus' || plusOrMinus === 'perc10') {
 //remove number from plus table
 	plusHistoryNumbers.splice(index, 1);
 	updateHistoryTable(plusHistoryNumbers, plusHistoryTable, 'plus');
 	
-	//remove number from total
-	runningTotal -= parseFloat(number.substring(1));
+//remove number from total
+	runningTotal -= parseFloat(number);
 	total.innerHTML = "$" + runningTotal.toFixed(2);
 } else {
 	minusHistoryNumbers.splice(index, 1);
 	updateHistoryTable(minusHistoryNumbers, minusHistoryTable, 'minus');
-	runningTotal += parseFloat(number.substring(1));
+	
+	runningTotal += parseFloat(number);
 	total.innerHTML = "$" + runningTotal.toFixed(2);
 }
 //console.log(runningTotal);
@@ -126,7 +143,8 @@ function deleteHistoryFunction(index, number, plusOrMinus) {
 //??	updateUI();
 };
 
-//update history table 
+//update history table
+//#2
 function updateHistoryTable(plusOrMinusNumbers, plusOrMinusTable, plusOrMinus, restore) {
 
 	const table = document.createElement("table");
@@ -134,7 +152,8 @@ function updateHistoryTable(plusOrMinusNumbers, plusOrMinusTable, plusOrMinus, r
 
 	plusOrMinusNumbers.forEach((number, index) => {
 
-		const formattedNumber = parseFloat(number.substring(1)).toFixed(2);
+		const formattedNumber = parseFloat(number).toFixed(2);
+		
 		const tr = document.createElement("tr");
 		const td = document.createElement("td");
 
@@ -148,8 +167,11 @@ function updateHistoryTable(plusOrMinusNumbers, plusOrMinusTable, plusOrMinus, r
 		let textNode;
 		if (plusOrMinus === "plus") {
 			textNode = document.createTextNode("$" + formattedNumber);
-		} else {
+		} else if (plusOrMinus === 'minus') {
 			textNode = document.createTextNode("-" + "$" + formattedNumber);
+		} else if (plusOrMinus === 'perc10') {
+			newFormattedNumber = formattedNumber * 0.1;
+			textNode = document.createTextNode("$" + formattedNumber)
 		}
 
 //update table
