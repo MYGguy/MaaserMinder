@@ -84,7 +84,7 @@ function submitButton(plusOrMinus) {
 		total.innerHTML = "$" + runningTotal.toFixed(2);
 		//console.log("you pressed minus");
 	}
-	//console.log("running total: " + runningTotal);
+	console.log("running total: " + runningTotal);
 	amount.value = "$";
 };
 
