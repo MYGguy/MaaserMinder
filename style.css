@@ -32,58 +32,68 @@ div {
 	display: flex;
 	justify-content: center;
 	align-content: center;
-	
 }
 
-.plusMinusButton, #percentages {
+.plusMinusButton, #percentagesButton {
     width: 15vw;
     height: 15vw;
+    
+    margin: 0;
+    
     font-size: 3em;
+    
     border: none;
     border-radius: 50px;
+    
     background-color: #fff;
 }
 
 #keypad {
     font-size: 4em;
+    
     display: flex;
     justify-content: center;
     align-items: center;
+    
     margin: 0 5vw;
 }
 
 .key, .delete {
 	text-align: center;
+	
 	padding: 1vw 3vw;
+	
 	background-color: rgba(255,255,255, 0.3);
 	border-radius: 65px;
 }
 
-#rightPanel {
+#rightPanel, #leftPanel {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	
 	margin: 0;
 }
 
-#percentages {
+#percentages, #percentagesButton {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	
-	/*margin-top: 2vw;
-	margin-left: 3vw;*/
+	margin: 1.5vw 0;
 	
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 	font-weight: 700;
-	font-size: 1.5em;
+	font-size: 1.3em;
 }
 
 #histories {
 	font-size: 2em;
 	height: 40vh;
+	
 	background-color: rgba(255,255,255, 0.3);
 	border-radius: 50px;
+	
 	text-align: left;
 }
 
@@ -118,6 +128,7 @@ div {
 #buttonDelete {
 	font-weight: 1000;
     font-size: .8em;
+    
     padding: 0;
 }
 
