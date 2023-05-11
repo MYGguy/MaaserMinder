@@ -210,4 +210,4 @@ function resetState() {
 	}
 }
 
-//TODO: percentage calculator
+//TODO 20% button
