@@ -113,12 +113,12 @@ function deleteHistoryFunction(index, number, plusOrMinus) {
 	
 	//remove number from total
 	runningTotal -= parseFloat(number.substring(1));
-	total.innerHTML = "$" + runningTotal;
+	total.innerHTML = "$" + runningTotal.toFixed(2);
 } else {
 	minusHistoryNumbers.splice(index, 1);
 	updateHistoryTable(minusHistoryNumbers, minusHistoryTable, 'minus');
 	runningTotal += parseFloat(number.substring(1));
-	total.innerHTML = "$" + runningTotal;
+	total.innerHTML = "$" + runningTotal.toFixed(2);
 }
 //console.log(runningTotal);
 
