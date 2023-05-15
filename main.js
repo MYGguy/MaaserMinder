@@ -234,7 +234,7 @@ function updateUI() {
 
 //TODO: ////rethink: -- percent button. it's gray, put in numbers. percent button becomes green. click percent button, numbers become green. put in percent number, then plus.
 
-//TODO: change deletebtn and deletehistoryfunction to 'remove'
+//bug: reopening page in codepen shows '$'
 
 //BUG: refresh breaks page
 // only happens in spck
