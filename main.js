@@ -237,3 +237,4 @@ function updateUI() {
 //TODO: change deletebtn and deletehistoryfunction to 'remove'
 
 //BUG: refresh breaks page
+// only happens in spck
