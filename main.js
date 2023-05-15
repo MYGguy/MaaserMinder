@@ -85,11 +85,11 @@ function updateHistoryTable(
     const td = document.createElement("td");
 
     // create delete button
-    const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "X";
-    deleteBtn.id = "deleteHistoryButton";
-    deleteBtn.addEventListener("click", function () {
-      deleteHistoryFunction(index, number, plusOrMinus);
+    const removeBtn = document.createElement("button");
+    removeBtn.textContent = "X";
+    removeBtn.id = "deleteHistoryButton";
+    removeBtn.addEventListener("click", function () {
+      removeHistoryFunction(index, number, plusOrMinus);
     });
 
     //text to add to td
@@ -105,7 +105,7 @@ function updateHistoryTable(
 
     //update table
     td.appendChild(textNode);
-    td.appendChild(deleteBtn);
+    td.appendChild(removeBtn);
     tr.appendChild(td);
 
     tbody.appendChild(tr);
@@ -152,7 +152,7 @@ function submitButton(plusOrMinus) {
 }
 
 //delete history button
-function deleteHistoryFunction(index, number, plusOrMinus) {
+function removeHistoryFunction(index, number, plusOrMinus) {
   if (plusOrMinus === "plus" || plusOrMinus === "perc10") {
     //remove number from plus table
     plusHistoryNumbers.splice(index, 1);
