@@ -91,6 +91,10 @@ div {
 	background-color: greenyellow;
 }
 
+#percentagesButton.selected {
+	border: 5px solid black;
+}
+
 #histories {
 	font-size: 2em;
 	height: 40vh;
