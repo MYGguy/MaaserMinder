@@ -21,14 +21,13 @@ document.addEventListener("DOMContentLoaded", () => {
   amount.value = "$";
 
   // Update input field value
-  
   keys.forEach((key) => {
     key.addEventListener("click", () => {
     	if (!key.classList.contains('percentageTime')) {
-      const value = key.getAttribute("data-value");
-      amount.value += value;
-      
-      percentagesButton.classList.add("active");
+	      const value = key.getAttribute("data-value");
+	      amount.value += value;
+	      
+	      percentagesButton.classList.add("active");
     } else {
     	//////percentage calculator
     	
@@ -100,9 +99,6 @@ function submitButton(plusOrMinus) {
   percentagesButton.classList.remove('selected');
   percentagesButton.classList.remove('active');
   togglePercTime('off');
-  
-  console.log(percentagesButton.
-  classList);
 }
 
 //update history table
@@ -180,7 +176,7 @@ function removeHistoryFunction(index, number, plusOrMinus) {
 
 function togglePercTime(offOrOn) {
 	if (offOrOn === 'on') {
-document.querySelectorAll('.key').forEach((element) => {
+	document.querySelectorAll('.key').forEach((element) => {
 			element.classList.
 			add('percentageTime');
 		})
@@ -193,17 +189,11 @@ document.querySelectorAll('.key').forEach((element) => {
 }
 // percentages function
 function percentagesFunction() {
-	console.log('you pressed percent');
-	
 	if (percentagesButton.classList.contains("active")) {
-		console.log("hello");
 		
 		percentagesButton.classList.toggle('selected');
 		
 		togglePercTime('on');
-		
-		//console.log(keys[1]);
-		
 	}
 }
 
