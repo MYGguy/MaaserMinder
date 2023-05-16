@@ -43,13 +43,9 @@ function addToHistory(
   restore
 ) {
   if (amount.value !== "$" || restore) {
-    if (plusOrMinus === "perc10") {
-      x = parseFloat(amount.value.substring(1)) * 0.1;
-      plusOrMinusNumbers.unshift(x.toFixed(2));
-      console.log("perc10 number: " + x);
-    } else {
+
       plusOrMinusNumbers.unshift(amount.value.substring(1));
-    }
+    
     if (!restore) {
       submitButton(plusOrMinus);
     }
@@ -65,7 +61,7 @@ function addToHistory(
   if (!restore) {
     saveState();
   }
-}
+};
 
 //update history table
 //#2
@@ -98,9 +94,6 @@ function updateHistoryTable(
       textNode = document.createTextNode("$" + formattedNumber);
     } else if (plusOrMinus === "minus") {
       textNode = document.createTextNode("-" + "$" + formattedNumber);
-    } else if (plusOrMinus === "perc10") {
-      let newFormattedNumber = formattedNumber * 0.1;
-      textNode = document.createTextNode("$" + formattedNumber);
     }
 
     //update table
@@ -139,12 +132,6 @@ function submitButton(plusOrMinus) {
     total.innerHTML = "$" + runningTotal.toFixed(2);
     //console.log("you pressed minus");
   }
-
-  // plus percentage
-  else if (plusOrMinus === "perc10") {
-    runningTotal += inputValue * 0.1;
-    total.innerHTML = "$" + runningTotal.toFixed(2);
-  }
   console.log("running total: " + runningTotal);
   console.log("plushistorynumbers: " + plusHistoryNumbers);
 
@@ -153,7 +140,7 @@ function submitButton(plusOrMinus) {
 
 //delete history button
 function removeHistoryFunction(index, number, plusOrMinus) {
-  if (plusOrMinus === "plus" || plusOrMinus === "perc10") {
+  if (plusOrMinus === "plus") {
     //remove number from plus table
     plusHistoryNumbers.splice(index, 1);
     updateHistoryTable(plusHistoryNumbers, plusHistoryTable, "plus");
