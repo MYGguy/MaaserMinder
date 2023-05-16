@@ -87,6 +87,10 @@ div {
 	font-size: 1.3em;
 }
 
+#percentagesButton.active {
+	background-color: greenyellow;
+}
+
 #histories {
 	font-size: 2em;
 	height: 40vh;

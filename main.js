@@ -8,6 +8,8 @@ let mht = document.getElementById("minusHistoryTable");
 let plusHistoryNumbers = [];
 let minusHistoryNumbers = [];
 
+const percentagesButton = document.getElementById("percentagesButton");
+
 const amount = document.getElementById("amount");
 const keys = document.querySelectorAll(".key");
 const deleteKey = document.getElementById("buttonDelete");
@@ -19,11 +21,15 @@ document.addEventListener("DOMContentLoaded", () => {
   amount.value = "$";
 
   // Update input field value
+  
   keys.forEach((key) => {
     key.addEventListener("click", () => {
+    	if (!key.classList.contains('percentageTime')) {
       const value = key.getAttribute("data-value");
       amount.value += value;
-    });
+      percentagesButton.classList.add("active");
+    };
+  	});
   });
 
   // Delete button
@@ -43,7 +49,6 @@ function addToHistory(
   restore
 ) {
   if (amount.value !== "$" || restore) {
-
       plusOrMinusNumbers.unshift(amount.value.substring(1));
     
     if (!restore) {
@@ -63,8 +68,36 @@ function addToHistory(
   }
 };
 
-//update history table
+// Submit button
 //#2
+function submitButton(plusOrMinus) {
+  // put into total
+  let inputValue = parseFloat(amount.value.substring(1));
+
+  // plus to total
+  if (plusOrMinus === "plus") {
+    runningTotal += inputValue;
+    total.innerHTML = "$" + runningTotal.toFixed(2);
+    //console.log("you pressed plus");
+  }
+
+  // minus from total
+  else if (plusOrMinus === "minus") {
+    runningTotal -= inputValue;
+    total.innerHTML = "$" + runningTotal.toFixed(2);
+    //console.log("you pressed minus");
+  }
+  //(console.log("running total: " + runningTotal);
+  //console.log("plushistorynumbers: " + plusHistoryNumbers);
+
+  amount.value = "$";
+  
+  togglePercTime();
+  
+}
+
+//update history table
+//#3
 function updateHistoryTable(
   plusOrMinusNumbers,
   plusOrMinusTable,
@@ -113,31 +146,6 @@ function updateHistoryTable(
   //console.log("minus numbers: " + minusHistoryNumbers);
 }
 
-// Submit button
-//#3
-function submitButton(plusOrMinus) {
-  // put into total
-  let inputValue = parseFloat(amount.value.substring(1));
-
-  // plus to total
-  if (plusOrMinus === "plus") {
-    runningTotal += inputValue;
-    total.innerHTML = "$" + runningTotal.toFixed(2);
-    //console.log("you pressed plus");
-  }
-
-  // minus from total
-  else if (plusOrMinus === "minus") {
-    runningTotal -= inputValue;
-    total.innerHTML = "$" + runningTotal.toFixed(2);
-    //console.log("you pressed minus");
-  }
-  console.log("running total: " + runningTotal);
-  console.log("plushistorynumbers: " + plusHistoryNumbers);
-
-  amount.value = "$";
-}
-
 //delete history button
 function removeHistoryFunction(index, number, plusOrMinus) {
   if (plusOrMinus === "plus") {
@@ -159,6 +167,23 @@ function removeHistoryFunction(index, number, plusOrMinus) {
 
   saveState();
   //??	updateUI();
+}
+
+function togglePercTime() {
+document.querySelectorAll('.key').forEach((element) => {
+			element.classList.
+			toggle('percentageTime');
+		})
+}
+// percentages function
+function percentagesFunction() {
+	console.log('you pressed percent');
+	if (percentagesButton.classList.contains("active")) {
+		console.log("hello");
+		togglePercTime();
+		console.log(keys[1]);
+		
+	}
 }
 
 // Reset state button
