@@ -232,7 +232,7 @@ function updateUI() {
   updateHistoryTable(minusHistoryNumbers, minusHistoryTable, "minus");
 }
 
-//TODO: ////rethink: -- percent button. it's gray, put in numbers. percent button becomes green. click percent button, numbers become green. put in percent number, then plus.
+//TODO: -- percent button. it's gray, put in numbers. percent button becomes green. click percent button, numbers become green. put in percent number, then plus.
 
 //bug: reopening page in codepen shows '$'
 
