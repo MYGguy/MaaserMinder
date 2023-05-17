@@ -144,6 +144,10 @@ div {
     padding: 0;
 }
 
+#buttonDelete.inactive {
+	background-color: slategray;
+}
+
 #restoreState {
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 	font-size: .5em;

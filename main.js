@@ -217,7 +217,6 @@ function percentagesFunction() {
 		percentagesButton.classList.toggle('selected');
 		
 		togglePercTime('toggle');
-		console.log(deleteKey.classList);
 	}
 }
 
