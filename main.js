@@ -179,6 +179,7 @@ function removeHistoryFunction(index, number, plusOrMinus) {
   //??	updateUI();
 }
 
+// percentage time function
 function togglePercTime(offOrOn) {
 	if (offOrOn === 'on') {
 	document.querySelectorAll('.key').forEach((element) => {
@@ -195,6 +196,11 @@ function togglePercTime(offOrOn) {
 			element.classList.
 			toggle('percentageTime');
 		})
+		if (!amount.value.includes('%')) {
+			amount.value += "%";
+		} else {
+			amount.value = amount.value.replace("%", "");
+		}
 	}
 }
 // percentages function
