@@ -40,6 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (amount.value.length > 1) {
       amount.value = amount.value.slice(0, -1);
     }
+    if (amount.value.length === 1) {
+    	percentagesButton.classList.remove('active');
+    	percentagesButton.classList.remove('selected');
+    	togglePercTime('off');
+    }
   });
 });
 
