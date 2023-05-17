@@ -185,6 +185,11 @@ function togglePercTime(offOrOn) {
 			element.classList.
 			remove('percentageTime');
 		})
+	} else if (offOrOn === 'toggle') {
+		document.querySelectorAll('.key').forEach((element) => {
+			element.classList.
+			toggle('percentageTime');
+		})
 	}
 }
 // percentages function
@@ -193,7 +198,7 @@ function percentagesFunction() {
 		
 		percentagesButton.classList.toggle('selected');
 		
-		togglePercTime('on');
+		togglePercTime('toggle');
 	}
 }
 
@@ -256,7 +261,7 @@ function updateUI() {
 }
 
 //TODO: -- percent button. it's gray, put in numbers. percent button becomes green. click percent button, numbers become green. put in percent number, then plus.
-//TODO: delete key re-grays-out the lercent button (maybe, whenever amount.value = 0, its gray)
+//TODO: delete key re-grays-out the percent button (maybe: whenever amount.value = 0, its gray)
 
 //bug: reopening page in codepen shows '$'
 
