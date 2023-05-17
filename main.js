@@ -35,18 +35,22 @@ document.addEventListener("DOMContentLoaded", () => {
   	});
   });
 
-  // Delete button
-  deleteKey.addEventListener("click", () => {
-    if (amount.value.length > 1) {
-      amount.value = amount.value.slice(0, -1);
-    }
-    if (amount.value.length === 1) {
-    	percentagesButton.classList.remove('active');
-    	percentagesButton.classList.remove('selected');
-    	togglePercTime('off');
-    }
-  });
+  // Delete buttonbutton
+	
+	  deleteKey.addEventListener("click", () => {
+	  	if (!deleteKey.classList.contains('inactive')) {
+	    if (amount.value.length > 1) {
+	      amount.value = amount.value.slice(0, -1);
+	    }
+	    if (amount.value.length === 1) {
+	    	percentagesButton.classList.remove('active');
+	    	percentagesButton.classList.remove('selected');
+	    	togglePercTime('off');
+	    }
+	  	}
+	  });
 });
+
 
 // main function when button is pressed
 //#1
@@ -190,6 +194,7 @@ function togglePercTime(offOrOn) {
 		document.querySelectorAll('.key').forEach((element) => {
 			element.classList.
 			remove('percentageTime');
+			deleteKey.classList.remove('inactive')
 		})
 	} else if (offOrOn === 'toggle') {
 		document.querySelectorAll('.key').forEach((element) => {
@@ -198,8 +203,10 @@ function togglePercTime(offOrOn) {
 		})
 		if (!amount.value.includes('%')) {
 			amount.value += "%";
+			deleteKey.classList.add('inactive');
 		} else {
 			amount.value = amount.value.replace("%", "");
+			deleteKey.classList. remove('inactive');
 		}
 	}
 }
@@ -210,6 +217,7 @@ function percentagesFunction() {
 		percentagesButton.classList.toggle('selected');
 		
 		togglePercTime('toggle');
+		console.log(deleteKey.classList);
 	}
 }
 
