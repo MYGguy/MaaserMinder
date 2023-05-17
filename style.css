@@ -67,6 +67,10 @@ div {
 	border-radius: 65px;
 }
 
+.key.percentageTime {
+	background-color: rgba(175,255,175, 0.3);
+}
+
 #rightPanel, #leftPanel {
 	display: flex;
 	flex-direction: column;

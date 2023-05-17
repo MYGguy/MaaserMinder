@@ -266,7 +266,6 @@ function updateUI() {
 }
 
 //TODO: -- percent button. it's gray, put in numbers. percent button becomes green. click percent button, numbers become green. put in percent number, then plus.
-//TODO: delete key re-grays-out the percent button (maybe: whenever amount.value = 0, its gray)
 
 //TODO: when percent button is selected, plus and minus gray out until another key is pressed
 
