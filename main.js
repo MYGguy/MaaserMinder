@@ -187,6 +187,16 @@ function removeHistoryFunction(index, number, plusOrMinus) {
   //??	updateUI();
 }
 
+// percentages function
+function percentagesFunction() {
+	if (percentagesButton.classList.contains("active")) {
+		
+		percentagesButton.classList.toggle('selected');
+		
+		togglePercTime('toggle');
+	}
+}
+
 // percentage time function
 function togglePercTime(offOrOn) {
 	/*if (offOrOn === 'on') {
@@ -222,15 +232,6 @@ function togglePercTime(offOrOn) {
 			plusButton.classList. remove('inactive');
 			minusButton.classList. remove('inactive');
 		}
-	}
-}
-// percentages function
-function percentagesFunction() {
-	if (percentagesButton.classList.contains("active")) {
-		
-		percentagesButton.classList.toggle('selected');
-		
-		togglePercTime('toggle');
 	}
 }
 
