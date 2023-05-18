@@ -292,7 +292,9 @@ function updateUI() {
   updateHistoryTable(minusHistoryNumbers, minusHistoryTable, "minus");
 }
 
-//TODO: -- percent button. it's gray, put in numbers. percent button becomes green. click percent button, numbers become green. put in percent number, then plus.
+//TODO: in percentTime: press numbers to add percentage
+
+//TODO: in percentTime: when key is pressed, delete and plus amd minus buttons become active.
 
 //bug: reopening page in codepen shows '$'
 
