@@ -48,6 +48,10 @@ div {
     background-color: #fff;
 }
 
+.plusMinusButton.inactive {
+	background-color: slategray;
+}
+
 #keypad {
     font-size: 4em;
     

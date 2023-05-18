@@ -14,6 +14,9 @@ const amount = document.getElementById("amount");
 const keys = document.querySelectorAll(".key");
 const deleteKey = document.getElementById("buttonDelete");
 
+const plusButton = document.getElementById('plus');
+const minusButton = document.getElementById('minus');
+
 // Keypad buttons
 document.addEventListener("DOMContentLoaded", () => {
   restoreState();
@@ -35,8 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
   	});
   });
 
-  // Delete buttonbutton
-	
+  // Delete button
 	  deleteKey.addEventListener("click", () => {
 	  	if (!deleteKey.classList.contains('inactive')) {
 	    if (amount.value.length > 1) {
@@ -60,24 +62,26 @@ function addToHistory(
   plusOrMinus,
   restore
 ) {
-  if (amount.value !== "$" || restore) {
-      plusOrMinusNumbers.unshift(amount.value.substring(1));
-    
-    if (!restore) {
-      submitButton(plusOrMinus);
-    }
-  }
-
-  updateHistoryTable(
-    plusOrMinusNumbers,
-    plusOrMinusTable,
-    plusOrMinus,
-    restore
-  );
-
-  if (!restore) {
-    saveState();
-  }
+	if (!plusButton.classList. contains('inactive') && !minusButton.classList. contains('inactive')) {
+	  if (amount.value !== "$" || restore) {
+	      plusOrMinusNumbers.unshift(amount.value.substring(1));
+	    
+	    if (!restore) {
+	      submitButton(plusOrMinus);
+	    }
+	  }
+	
+	  updateHistoryTable(
+	    plusOrMinusNumbers,
+	    plusOrMinusTable,
+	    plusOrMinus,
+	    restore
+	  );
+	
+	  if (!restore) {
+	    saveState();
+	  };
+	};
 };
 
 // Submit button
@@ -185,28 +189,38 @@ function removeHistoryFunction(index, number, plusOrMinus) {
 
 // percentage time function
 function togglePercTime(offOrOn) {
-	if (offOrOn === 'on') {
+	/*if (offOrOn === 'on') {
 	document.querySelectorAll('.key').forEach((element) => {
 			element.classList.
 			add('percentageTime');
 		})
-	} else if (offOrOn === 'off') {
+	} else*/ if (offOrOn === 'off') {
 		document.querySelectorAll('.key').forEach((element) => {
 			element.classList.
 			remove('percentageTime');
 			deleteKey.classList.remove('inactive')
 		})
+		plusButton.classList.remove('inactive');
+		minusButton.classList.remove('inactive');
+		
 	} else if (offOrOn === 'toggle') {
 		document.querySelectorAll('.key').forEach((element) => {
 			element.classList.
 			toggle('percentageTime');
 		})
+		
 		if (!amount.value.includes('%')) {
 			amount.value += "%";
 			deleteKey.classList.add('inactive');
+			
+			plusButton.classList.add('inactive');
+			minusButton.classList.add('inactive');
 		} else {
 			amount.value = amount.value.replace("%", "");
 			deleteKey.classList. remove('inactive');
+			
+			plusButton.classList. remove('inactive');
+			minusButton.classList. remove('inactive');
 		}
 	}
 }
@@ -279,8 +293,6 @@ function updateUI() {
 }
 
 //TODO: -- percent button. it's gray, put in numbers. percent button becomes green. click percent button, numbers become green. put in percent number, then plus.
-
-//TODO: when percent button is selected, plus and minus gray out until another key is pressed
 
 //bug: reopening page in codepen shows '$'
 
