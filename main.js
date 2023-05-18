@@ -5,6 +5,8 @@ let runningTotal = 0;
 let pht = document.getElementById("plusHistoryTable");
 let mht = document.getElementById("minusHistoryTable");
 
+let percValue = [];
+
 let plusHistoryNumbers = [];
 let minusHistoryNumbers = [];
 
@@ -33,7 +35,17 @@ document.addEventListener("DOMContentLoaded", () => {
 	      percentagesButton.classList.add("active");
     } else {
     	//////percentage calculator
+    	const value = key.getAttribute("data-value");
+    	percValue.push(value);
+    	console.log(percValue);
     	
+    	// delete key
+    	deleteKey.addEventListener("click", () => {
+    		if (percValue.length > 0) {
+    			percValue.pop();
+    			console.log(percValue);
+    		}
+    	})
     };
   	});
   });
@@ -41,9 +53,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Delete button
 	  deleteKey.addEventListener("click", () => {
 	  	if (!deleteKey.classList.contains('inactive')) {
-	    if (amount.value.length > 1) {
-	      amount.value = amount.value.slice(0, -1);
-	    }
+		    if (amount.value.length > 1) {
+		      amount.value = amount.value.slice(0, -1);
+		    }
 	    if (amount.value.length === 1) {
 	    	percentagesButton.classList.remove('active');
 	    	percentagesButton.classList.remove('selected');
