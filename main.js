@@ -28,41 +28,38 @@ document.addEventListener("DOMContentLoaded", () => {
   // Update input field value
   keys.forEach((key) => {
     key.addEventListener("click", () => {
-    	if (!key.classList.contains('percentageTime')) {
-	      const value = key.getAttribute("data-value");
-	      amount.value += value;
-	      
-	      percentagesButton.classList.add("active");
-    } else {
-    	//////percentage calculator
-    	const value = key.getAttribute("data-value");
-    	percValue.push(value);
-    	console.log(percValue);
-    	
-    	// delete key
-    	deleteKey.addEventListener("click", () => {
-    		if (percValue.length > 0) {
-    			percValue.pop();
-    			console.log(percValue);
-    		}
-    	})
-    };
-  	});
+      if (!key.classList.contains('percentageTime')) {
+        const value = key.getAttribute("data-value");
+        amount.value += value;
+        
+        percentagesButton.classList.add("active");
+      } else if (percValue.length <= 1) {
+        //////percentage calculator
+        const value = key.getAttribute("data-value");
+        percValue.push(value);
+        console.log(percValue.join(""));
+        amount.value += value;
+      }
+    });
   });
 
   // Delete button
-	  deleteKey.addEventListener("click", () => {
-	  	if (!deleteKey.classList.contains('inactive')) {
-		    if (amount.value.length > 1) {
-		      amount.value = amount.value.slice(0, -1);
-		    }
-	    if (amount.value.length === 1) {
-	    	percentagesButton.classList.remove('active');
-	    	percentagesButton.classList.remove('selected');
-	    	togglePercTime('off');
-	    }
-	  	}
-	  });
+  deleteKey.addEventListener("click", () => {
+    if (!deleteKey.classList.contains('inactive')) {
+      if (amount.value.length > 1) {
+        amount.value = amount.value.slice(0, -1);
+      }
+      if (amount.value.length === 1) {
+        percentagesButton.classList.remove('active');
+        percentagesButton.classList.remove('selected');
+        togglePercTime('off');
+      }
+    } else if (percValue.length > 0) {
+      percValue.pop();
+      amount.value = amount.value.slice(0, -1);
+      console.log(parseFloat(percValue));
+    }
+  });
 });
 
 
@@ -220,8 +217,8 @@ function togglePercTime(offOrOn) {
 		document.querySelectorAll('.key').forEach((element) => {
 			element.classList.
 			remove('percentageTime');
-			deleteKey.classList.remove('inactive')
 		})
+		deleteKey.classList.remove('inactive')
 		plusButton.classList.remove('inactive');
 		minusButton.classList.remove('inactive');
 		
@@ -233,6 +230,7 @@ function togglePercTime(offOrOn) {
 		
 		if (!amount.value.includes('%')) {
 			amount.value += "%";
+			
 			deleteKey.classList.add('inactive');
 			
 			plusButton.classList.add('inactive');
