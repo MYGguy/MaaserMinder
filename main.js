@@ -323,6 +323,8 @@ function updateUI() {
 
 //TODO: in percentTime: when key is pressed, delete and plus amd minus buttons become active.
 
+//TODO://BUG: percentage only adds to plus, not minus.
+
 //bug: reopening page in codepen shows '$'
 
 //CSS TODO: make plus minus buttons on the side of amount.value
