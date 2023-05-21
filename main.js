@@ -37,7 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
         //////percentage calculator
         const value = key.getAttribute("data-value");
         percValue.push(value);
-        console.log(percValue.join(""));
         amount.value += value;
       }
     });
@@ -71,27 +70,38 @@ function addToHistory(
   plusOrMinus,
   restore
 ) {
-	if (!plusButton.classList. contains('inactive') && !minusButton.classList. contains('inactive')) {
-	  if (amount.value !== "$" || restore) {
-	      plusOrMinusNumbers.unshift(amount.value.substring(1));
-	    
-	    if (!restore) {
-	      submitButton(plusOrMinus);
-	    }
-	  }
-	
-	  updateHistoryTable(
-	    plusOrMinusNumbers,
-	    plusOrMinusTable,
-	    plusOrMinus,
-	    restore
-	  );
-	
-	  if (!restore) {
-	    saveState();
-	  };
-	};
+    if (amount.value.includes('%')) {
+      let percentIndex = amount.value.indexOf('%');
+      let amountNumber = Number(amount.value.substring(1, percentIndex));
+      let percValueNumber = Number(percValue.join('')) / 100;
+      let result = amountNumber * percValueNumber;
+      
+      plusOrMinusNumbers.unshift(result);
+      
+      runningTotal += result;
+      total.innerHTML = "$" + runningTotal.toFixed(2);
+      
+    } else if (amount.value !== "$" || restore) {
+      plusOrMinusNumbers.unshift(amount.value.substring(1));
+    }
+    
+    if (!restore) {
+      submitButton(plusOrMinus);
+    }
+  
+  
+  updateHistoryTable(
+    plusOrMinusNumbers,
+    plusOrMinusTable,
+    plusOrMinus,
+    restore
+  );
+  
+  if (!restore) {
+    saveState();
+  };
 };
+
 
 // Submit button
 //#2
@@ -100,14 +110,14 @@ function submitButton(plusOrMinus) {
   let inputValue = parseFloat(amount.value.substring(1));
 
   // plus to total
-  if (plusOrMinus === "plus") {
+  if (plusOrMinus === "plus" && percValue.length < 1) {
     runningTotal += inputValue;
     total.innerHTML = "$" + runningTotal.toFixed(2);
     //console.log("you pressed plus");
   }
 
   // minus from total
-  else if (plusOrMinus === "minus") {
+  else if (plusOrMinus === "minus" && percValue.length < 1) {
     runningTotal -= inputValue;
     total.innerHTML = "$" + runningTotal.toFixed(2);
     //console.log("you pressed minus");
@@ -116,6 +126,7 @@ function submitButton(plusOrMinus) {
   //console.log("plushistorynumbers: " + plusHistoryNumbers);
 
   amount.value = "$";
+  percValue = [];
   
   //percentage functions
   percentagesButton.classList.remove('selected');
@@ -193,7 +204,7 @@ function removeHistoryFunction(index, number, plusOrMinus) {
   //console.log(runningTotal);
 
   saveState();
-  //??	updateUI();
+  updateUI();
 }
 
 // percentages function
@@ -309,8 +320,6 @@ function updateUI() {
   // Update the minus history table
   updateHistoryTable(minusHistoryNumbers, minusHistoryTable, "minus");
 }
-
-//TODO: in percentTime: press numbers to add percentage
 
 //TODO: in percentTime: when key is pressed, delete and plus amd minus buttons become active.
 
