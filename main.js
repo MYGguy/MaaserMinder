@@ -241,6 +241,13 @@ function togglePercTime(offOrOn) {
 			
 			plusButton.classList. remove('inactive');
 			minusButton.classList. remove('inactive');
+			
+			if (percValue.length > 0) {
+			amount.value = amount.value.slice(0, -percValue.length)
+			percValue = [];
+			
+			console.log(percValue);
+			}
 		}
 	}
 }
