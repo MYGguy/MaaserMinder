@@ -70,25 +70,29 @@ function addToHistory(
   plusOrMinus,
   restore
 ) {
-    if (amount.value.includes('%')) {
+	let result;
+	
+	if (amount.value.indexOf('%') === amount.value.length -1) {
+		return;
+	}
+	
+    if (amount.value.includes('%') && plusOrMinus !== "minus" ) {
       let percentIndex = amount.value.indexOf('%');
       let amountNumber = Number(amount.value.substring(1, percentIndex));
       let percValueNumber = Number(percValue.join('')) / 100;
-      let result = amountNumber * percValueNumber;
+      result = amountNumber * percValueNumber;
       
       plusOrMinusNumbers.unshift(result);
       
-      runningTotal += result;
-      total.innerHTML = "$" + runningTotal.toFixed(2);
-      
-    } else if (amount.value !== "$" || restore) {
+    } else if ((amount.value !== "$" || restore) && percValue.length === 0) {
       plusOrMinusNumbers.unshift(amount.value.substring(1));
+    } else if (minusButton.classList.contains('inactive')) {
+    	return;
     }
     
     if (!restore) {
-      submitButton(plusOrMinus);
+      submitButton(plusOrMinus, result);
     }
-  
   
   updateHistoryTable(
     plusOrMinusNumbers,
@@ -105,24 +109,30 @@ function addToHistory(
 
 // Submit button
 //#2
-function submitButton(plusOrMinus) {
+function submitButton(plusOrMinus, result) {
   // put into total
   let inputValue = parseFloat(amount.value.substring(1));
-
+  
   // plus to total
-  if (plusOrMinus === "plus" && percValue.length < 1) {
+  if (plusOrMinus == "plus" && percValue.length < 1) {
     runningTotal += inputValue;
     total.innerHTML = "$" + runningTotal.toFixed(2);
     //console.log("you pressed plus");
   }
 
   // minus from total
-  else if (plusOrMinus === "minus" && percValue.length < 1) {
+  else if (plusOrMinus == "minus" && percValue.length < 1) {
     runningTotal -= inputValue;
     total.innerHTML = "$" + runningTotal.toFixed(2);
     //console.log("you pressed minus");
-  }
-  //(console.log("running total: " + runningTotal);
+    
+  } else if (plusOrMinus == "plus" && percValue.length > 0) {
+	  runningTotal += result;
+	      total.innerHTML = "$" + runningTotal.toFixed(2);
+  };
+  
+  //console.log("running total: " + runningTotal);
+  //console.log(result);
   //console.log("plushistorynumbers: " + plusHistoryNumbers);
 
   amount.value = "$";
@@ -161,9 +171,9 @@ function updateHistoryTable(
 
     //text to add to td
     let textNode;
-    if (plusOrMinus === "plus") {
+    if (plusOrMinus == "plus") {
       textNode = document.createTextNode("$" + formattedNumber);
-    } else if (plusOrMinus === "minus") {
+    } else if (plusOrMinus == "minus" && percValue < 1) {
       textNode = document.createTextNode("-" + "$" + formattedNumber);
     }
 
@@ -186,7 +196,7 @@ function updateHistoryTable(
 
 //delete history button
 function removeHistoryFunction(index, number, plusOrMinus) {
-  if (plusOrMinus === "plus") {
+  if (plusOrMinus == "plus") {
     //remove number from plus table
     plusHistoryNumbers.splice(index, 1);
     updateHistoryTable(plusHistoryNumbers, plusHistoryTable, "plus");
@@ -219,21 +229,16 @@ function percentagesFunction() {
 
 // percentage time function
 function togglePercTime(offOrOn) {
-	/*if (offOrOn === 'on') {
-	document.querySelectorAll('.key').forEach((element) => {
-			element.classList.
-			add('percentageTime');
-		})
-	} else*/ if (offOrOn === 'off') {
+	if (offOrOn == 'off') {
 		document.querySelectorAll('.key').forEach((element) => {
 			element.classList.
 			remove('percentageTime');
 		})
 		deleteKey.classList.remove('inactive')
-		plusButton.classList.remove('inactive');
+		//plusButton.classList.remove('inactive');
 		minusButton.classList.remove('inactive');
 		
-	} else if (offOrOn === 'toggle') {
+	} else if (offOrOn == 'toggle') {
 		document.querySelectorAll('.key').forEach((element) => {
 			element.classList.
 			toggle('percentageTime');
@@ -244,13 +249,13 @@ function togglePercTime(offOrOn) {
 			
 			deleteKey.classList.add('inactive');
 			
-			plusButton.classList.add('inactive');
+			//plusButton.classList.add('inactive');
 			minusButton.classList.add('inactive');
 		} else {
 			amount.value = amount.value.replace("%", "");
 			deleteKey.classList. remove('inactive');
 			
-			plusButton.classList. remove('inactive');
+			//plusButton.classList. remove('inactive');
 			minusButton.classList. remove('inactive');
 			
 			if (percValue.length > 0) {
