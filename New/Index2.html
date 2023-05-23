@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Maaser Minder</title>
+	<link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+	<h1 id="total">$</h1>
+	
+	<div class="row">
+		<button id="minus-button" class="plus-minus-button">-</button>
+		<input id="input-field" type="text"></input>
+		<button id="plus-button" class="plus-minus-button">+</button>
+	</div>
+	
+	<div class="row">
+		<table id="keypad">
+			<tbody>
+				<tr>
+					<td class="key" data-value="1">1</td>
+					<td class="key" data-value="2">2</td>
+					<td class="key" data-value="3">3</td>
+				</tr>
+				<tr>
+					<td class="key" data-value="4">4</td>
+					<td class="key" data-value="5">5</td>
+					<td class="key" data-value="6">6</td>
+				</tr>
+				<tr>
+					<td class="key" data-value="7">7</td>
+					<td class="key" data-value="8">8</td>
+					<td class="key" data-value="9">9</td>
+				</tr>
+				<tr>
+					<td class="key" data-value="0">0</td>
+					<td class="key" data-value=".">.</td>
+					<td class="backspace" data-value="backspace">←</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<button id="reset-button">Reset</button>
+	
+	<div class="row">
+		<div id="minus-history" class="history">---</div>
+		<div id="plus-history"class="history">+++</div>
+	</div>
+
+<script src="main2.js"></script>
+</body>
+
+</html>
