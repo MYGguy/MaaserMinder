@@ -24,6 +24,8 @@ body {
 	width: 60vw;
 	height: 10vw;
 	
+	margin: 3vw 0;
+	
 	font-size: 1em;
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 	
@@ -36,18 +38,24 @@ body {
 }
 
 .plus-minus-button {
-	margin: 0 1vw;
+	margin: 1vw 7.5vw 0 7.5vw;
 	
-	line-height: 0;
-	
-	width: 15vw;
-	height: 15vw;
+	width: 10vw;
+	height: 40vw;
 	
 	background-color: aliceblue;
 	border-radius: 75px;
 	border: none;
 	
 	font-size: 1.5em;
+}
+
+#minus-button {
+	float: left;
+}
+
+#plus-button {
+	float: right;
 }
 
 #keypad {
@@ -58,6 +66,10 @@ body {
 }
 
 .key {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
 	margin: 1vw;
 	
 	width: 16vw;
@@ -67,15 +79,15 @@ body {
 	border-radius: 75px;
 	
 	font-size: 1.75em;
-	
-	line-height: 19vw;
 }
 
 #backspace {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
 	font-size: 1.35em;
 	font-weight: 1000;
-	
-	line-height: 15vw;
 }
 
 #reset-button {
