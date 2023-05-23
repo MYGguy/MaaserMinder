@@ -2,6 +2,8 @@ body {
 	text-align: center;
 	
 	font-size: 70pt;
+
+	background-image: linear-gradient(to bottom left, #ddf, #cee);
 }
 
 .row {
@@ -31,4 +33,19 @@ body {
 
 #keypad {
 	font-size: 1.75em;
+}
+
+.key {
+	margin: 100px !important;
+	padding: 2vw;
+	
+	border: 1px solid black;
+	border-radius: 75px;
+}
+
+#backspace {
+	font-size: .75em;
+	font-weight: 1000;
+	
+	padding: 0;
 }
