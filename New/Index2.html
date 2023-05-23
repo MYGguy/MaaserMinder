@@ -11,44 +11,40 @@
 <body>
 	<h1 id="total">$</h1>
 	
-	<div class="row">
+	<div class="row" id="minus-plus-input-row">
 		<button id="minus-button" class="plus-minus-button">-</button>
-		<input id="input-field" type="text"></input>
+		<input id="input-field" type="text" value="$7613.50%50"></input>
 		<button id="plus-button" class="plus-minus-button">+</button>
 	</div>
 	
 	<div class="row">
-		<table id="keypad">
-			<tbody>
-				<tr>
-					<td class="key" data-value="1">1</td>
-					<td class="key" data-value="2">2</td>
-					<td class="key" data-value="3">3</td>
-				</tr>
-				<tr>
-					<td class="key" data-value="4">4</td>
-					<td class="key" data-value="5">5</td>
-					<td class="key" data-value="6">6</td>
-				</tr>
-				<tr>
-					<td class="key" data-value="7">7</td>
-					<td class="key" data-value="8">8</td>
-					<td class="key" data-value="9">9</td>
-				</tr>
-				<tr>
-					<td class="key" data-value="0">0</td>
-					<td class="key" data-value=".">.</td>
-					<td class="key" id="backspace" data-value="backspace">←</td>
-				</tr>
-			</tbody>
-		</table>
+		<div id="keypad">
+			<div class="key" data-value="1">1</div>
+			<div class="key" data-value="2">2</div>
+			<div class="key" data-value="3">3</div>
+				
+				
+			<div class="key" data-value="4">4</div>
+			<div class="key" data-value="5">5</div>
+			<div class="key" data-value="6">6</div>
+				
+				
+			<div class="key" data-value="7">7</div>
+			<div class="key" data-value="8">8</div>
+			<div class="key" data-value="9">9</div>
+				
+				
+			<div class="key" data-value=".">.</div>
+			<div class="key" data-value="0">0</div>
+			<div class="key" id="backspace" data-value="backspace">←</div>
+		</div>
 	</div>
 	
 	<button id="reset-button">Reset</button>
 	
-	<div class="row">
-		<div id="minus-history" class="history">---</div>
-		<div id="plus-history"class="history">+++</div>
+	<div class="row" id="histories">
+		<div id="minus-history" class="history">573.54</br>5483</br>56</div>
+		<div id="plus-history"class="history">548.63</br>5483</div>
 	</div>
 
 <script src="main2.js"></script>
