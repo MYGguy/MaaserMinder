@@ -24,9 +24,14 @@ document.addEventListener("DOMContentLoaded", () => {
 			
 			currentNumber += keyValue;
 			inputField.value = "$" + currentNumber;
+			console.log(currentNumber);
 		});
 	});
 });
 
+//DONE//////////
 //todo: add keypresses to currentNumber array
 //todo: update inputfield.value
+
+//TODOS/////////
+//TODO: delete button
