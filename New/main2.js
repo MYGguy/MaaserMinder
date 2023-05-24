@@ -17,5 +17,13 @@ const plusHistory = document.getElementById('plus-history');
 //lets declarations
 let currentNumber = [];
 
+document.addEventListener("DOMContentLoaded", () => {
+	keys.forEach((key) => {
+		key.addEventListener("click", () => {
+			console.log("hello");
+		});
+	});
+});
+
 //todo: add keypresses to currentNumber array
 //todo: update inputfield.value
