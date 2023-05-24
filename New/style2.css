@@ -7,7 +7,7 @@ body {
 	background-image: linear-gradient(to bottom left, #ddf, #cee);
 }
 
-.row {
+.row, .key, #backspace, #histories {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -66,10 +66,6 @@ body {
 }
 
 .key {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	
 	margin: 1vw;
 	
 	width: 16vw;
@@ -82,10 +78,6 @@ body {
 }
 
 #backspace {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	
 	font-size: 1.35em;
 	font-weight: 1000;
 }
@@ -107,9 +99,8 @@ body {
 }
 
 #histories {
-	display: flex;
-	justify-content: space-between;
 	align-items: flex-start;
+	justify-content: space-between;
 	
 	margin: 0 auto;
 	padding: 1vw 5vw;
