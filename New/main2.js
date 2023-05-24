@@ -20,7 +20,10 @@ let currentNumber = [];
 document.addEventListener("DOMContentLoaded", () => {
 	keys.forEach((key) => {
 		key.addEventListener("click", () => {
-			console.log("hello");
+			let keyValue = key.getAttribute("data-value");
+			
+			currentNumber += keyValue;
+			inputField.value = "$" + currentNumber;
 		});
 	});
 });
