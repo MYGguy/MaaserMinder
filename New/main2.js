@@ -1,4 +1,4 @@
-//declarations
+//dom declarations
 const total = document.getElementById('total');
 const inputField = document.getElementById('input-field');
 
@@ -13,3 +13,9 @@ const resetButton = document.getElementById('reset-button');
 
 const minusHistory = document.getElementById('minus-history');
 const plusHistory = document.getElementById('plus-history');
+
+//lets declarations
+let currentNumber = [];
+
+//todo: add keypresses to currentNumber array
+//todo: update inputfield.value
