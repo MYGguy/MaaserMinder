@@ -1,37 +1,36 @@
 //dom declarations
-const total = document.getElementById('total');
-const inputField = document.getElementById('input-field');
-
-const minusButton = document.getElementById('minus-button');
-const plusButton = document.getElementById('plus-button');
-const percentButton = document.getElementById('percent-button');
-
-const keys = document.querySelectorAll('.key');
-const backspace = document.getElementById('backspace');
-
-const resetButton = document.getElementById('reset-button');
-
-const minusHistory = document.getElementById('minus-history');
-const plusHistory = document.getElementById('plus-history');
+let total, inputField, minusButton, plusButton, percentButton, keys, backspace, resetButton, minusHistory, plusHistory;
 
 //lets declarations
 let currentNumber = [];
 
 document.addEventListener("DOMContentLoaded", () => {
-	keys.forEach((key) => {
-		key.addEventListener("click", () => {
-			let keyValue = key.getAttribute("data-value");
-			
-			currentNumber += keyValue;
-			inputField.value = "$" + currentNumber;
-			console.log(currentNumber);
-		});
-	});
+    total = document.getElementById('total');
+    inputField = document.getElementById('input-field');
+
+    minusButton = document.getElementById('minus-button');
+    plusButton = document.getElementById('plus-button');
+    percentButton = document.getElementById('percent-button');
+
+    keys = document.querySelectorAll('.key');
+    backspace = document.getElementById('backspace');
+
+    resetButton = document.getElementById('reset-button');
+
+    minusHistory = document.getElementById('minus-history');
+    plusHistory = document.getElementById('plus-history');
+
+    keyPress();
 });
 
-//DONE//////////
-//todo: add keypresses to currentNumber array
-//todo: update inputfield.value
+function keyPress() {
+    keys.forEach((key) => {
+        key.addEventListener("click", () => {
+            let keyValue = key.getAttribute("data-value");
 
-//TODOS/////////
-//TODO: delete button
+            currentNumber += keyValue;
+            inputField.value = "$" + currentNumber;
+            console.log(currentNumber);
+        });
+    });
+};
