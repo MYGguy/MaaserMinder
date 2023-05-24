@@ -7,7 +7,7 @@ body {
 	background-image: linear-gradient(to bottom left, #ddf, #cee);
 }
 
-.row, .key, #backspace, #histories {
+.row, .key, #backspace, #histories, #button-column {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -54,8 +54,22 @@ body {
 	float: left;
 }
 
-#plus-button {
+#button-column {
 	float: right;
+	flex-direction: column;
+}
+
+#percent-button {
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	
+	height: 20vw;
+	
+	padding: 0;
+	
+	font-size: 1em;
+	font-weight: 1000;
 }
 
 #keypad {
