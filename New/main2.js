@@ -4,6 +4,7 @@ const inputField = document.getElementById('input-field');
 
 const minusButton = document.getElementById('minus-button');
 const plusButton = document.getElementById('plus-button');
+const percentButton = document.getElementById('percent-button');
 
 const keys = document.querySelectorAll('.key');
 const backspace = document.getElementById('backspace');
