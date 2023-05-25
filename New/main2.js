@@ -30,7 +30,7 @@ function keyPress() {
         key.addEventListener("click", () => {
 //get key
             let keyValue = key.getAttribute("data-value");
-//update currwnt number
+//update current number
             currentNumber += keyValue;
 //update input field
             inputField.value = "$" + currentNumber;
@@ -39,3 +39,16 @@ function keyPress() {
         });
     });
 };
+
+//update total and histories when submitted
+function submitButton(plusOrMinus) {
+	if (plusOrMinus == "plus") {
+//update total
+	total.innerHTML = "$" + currentNumber;
+	} else if (plusOrMinus == "minus") {
+		total.innerHTML = "$" + -currentNumber;
+		console.log(-currentNumber);
+	}
+//reset current number 
+	currentNumber = [];
+}
