@@ -43,8 +43,18 @@ function keyPress() {
 //update total and histories when submitted
 function submitButton(plusOrMinus) {
 	if (plusOrMinus == "plus") {
+//plus
+
 //update total
 	total.innerHTML = "$" + currentNumber;
+	
+//add to history
+	let historyItem = document.createElement('li');
+	historyItem.textContent = "$" + currentNumber;
+	plusHistory.appendChild(historyItem);
+
+	
+//minus
 	} else if (plusOrMinus == "minus") {
 		total.innerHTML = "$" + -currentNumber;
 		console.log(-currentNumber);
