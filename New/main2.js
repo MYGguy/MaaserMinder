@@ -37,35 +37,26 @@ function keyPress() {
             currentNumber += keyValue;
 //update input field
             inputField.value = "$" + currentNumber;
-//test
-            console.log(currentNumber);
         });
     });
 };
 
 //update total and histories when submitted
-function submitButton(plusOrMinus) {
-	if (plusOrMinus == "plus") {
-//plus
-
-plusHistoryNumbers.unshift(currentNumber);
+function submitButton(plusOrMinus, plusOrMinusNumbers, plusOrMinusHistory) {
+	
+plusOrMinusNumbers.unshift(currentNumber);
 
 let ol = document.createElement("ol");
-plusHistory.innerHTML = '';
+plusOrMinusHistory.innerHTML = '';
 
-plusHistoryNumbers.forEach(number => {
+plusOrMinusNumbers.forEach(number => {
 	let li = document.createElement("li");
 	li.textContent = "$" + number;
 	ol.appendChild(li);
 	
 })
-plusHistory.appendChild(ol);
-console.log(plusHistory);
-	
-//minus
-	} else if (plusOrMinus == "minus") {
-		
-	}
+plusOrMinusHistory.appendChild(ol);
+
 //reset current number 
 	currentNumber = [];
 }
