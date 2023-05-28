@@ -3,6 +3,9 @@ let total, inputField, minusButton, plusButton, percentButton, keys, backspace, 
 
 //lets declarations
 let currentNumber = [];
+let plusHistoryNumbers = [];
+let minusHistoryNumbers = [];
+let runningTotal = 0;
 
 //when page starts, assign variables
 document.addEventListener("DOMContentLoaded", () => {
@@ -45,19 +48,23 @@ function submitButton(plusOrMinus) {
 	if (plusOrMinus == "plus") {
 //plus
 
-//update total
-	total.innerHTML = "$" + currentNumber;
-	
-//add to history
-	let historyItem = document.createElement('li');
-	historyItem.textContent = "$" + currentNumber;
-	plusHistory.appendChild(historyItem);
+plusHistoryNumbers.unshift(currentNumber);
 
+let ol = document.createElement("ol");
+plusHistory.innerHTML = '';
+
+plusHistoryNumbers.forEach(number => {
+	let li = document.createElement("li");
+	li.textContent = "$" + number;
+	ol.appendChild(li);
+	
+})
+plusHistory.appendChild(ol);
+console.log(plusHistory);
 	
 //minus
 	} else if (plusOrMinus == "minus") {
-		total.innerHTML = "$" + -currentNumber;
-		console.log(-currentNumber);
+		
 	}
 //reset current number 
 	currentNumber = [];
