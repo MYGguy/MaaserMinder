@@ -13,14 +13,14 @@
 	
 	<div class="row">
 	<input id="input-field" type="text" value="$7623.50"></input>
-	<input id="percent-field" class="active" value="50%"></input>
+	<input id="percent-field" value="50%"></input>
 	</div>
 	
 	<button id="minus-button" class="plus-minus-button" onclick="submitButton('minus', minusHistoryNumbers, minusHistory)">-</button>
 	
 	<div id="button-column">
 		<button id="plus-button" class="plus-minus-button" onclick="submitButton('plus', plusHistoryNumbers, plusHistory)">+</button>
-		<button id="percent-button" class="plus-minus-button">%</button>
+		<button id="percent-button" class="plus-minus-button" onclick="percentFunction()">%</button>
 	</div>
 	<div class="row">
 		<div id="keypad">
