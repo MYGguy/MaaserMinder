@@ -43,12 +43,13 @@ function keyPress() {
 
 //update total and histories when submitted
 function submitButton(plusOrMinus, plusOrMinusNumbers, plusOrMinusHistory) {
-	
+//add to history numbers array
 plusOrMinusNumbers.unshift(currentNumber);
 
 let ol = document.createElement("ol");
 plusOrMinusHistory.innerHTML = '';
 
+//write each number into the history
 plusOrMinusNumbers.forEach(number => {
 	let li = document.createElement("li");
 	li.textContent = "$" + number;
