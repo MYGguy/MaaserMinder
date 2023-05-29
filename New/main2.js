@@ -81,7 +81,4 @@ function submitButton(plusOrMinus, plusOrMinusNumbers, plusOrMinusHistory) {
 function percentFunction() {
 	percentTime = true;
 	percentField.classList.toggle("active");
-	console.log(percentField.classList);
-	
-	console.log("you pressed percent");
 }
