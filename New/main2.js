@@ -58,6 +58,8 @@ plusOrMinusNumbers.forEach(number => {
 })
 plusOrMinusHistory.appendChild(ol);
 
-//reset current number 
+//reset current number and input field
 	currentNumber = [];
+	inputField.value = "$";
+
 }

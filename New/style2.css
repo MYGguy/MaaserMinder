@@ -21,7 +21,14 @@ body {
 }
 
 #input-field {
-	width: 60vw;
+	width: 40vw;
+}
+
+#percent-field.inactive {
+	display: none;
+}
+
+#input-field, #percent-field.active {
 	height: 10vw;
 	
 	margin: 3vw 0;
@@ -35,6 +42,11 @@ body {
 	
 	vertical-align: middle;
 	text-align: center;
+}
+
+#percent-field.active {
+	width: 20vw;
+	background-color: #efe;
 }
 
 .plus-minus-button {
