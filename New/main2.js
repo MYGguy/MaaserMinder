@@ -38,8 +38,9 @@ function keyPress() {
 //get key
             let keyValue = key.getAttribute("data-value");
 //update current number
-			if (percentTime === false) {
+			if (percentTime !== true) {
             currentNumber += keyValue;
+            console.log(currentNumber);
 //update input field
             inputField.value = "$" + currentNumber;
             
