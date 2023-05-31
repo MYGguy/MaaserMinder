@@ -2,7 +2,7 @@
 let total, inputField, percentField, minusButton, plusButton, percentButton, keys, backspace, resetButton, minusHistory, plusHistory;
 
 //lets declarations
-let currentNumber = [];
+let currentNumber = 0;
 let plusHistoryNumbers = [];
 let minusHistoryNumbers = [];
 let runningTotal = 0;
@@ -39,7 +39,7 @@ function keyPress() {
             let keyValue = key.getAttribute("data-value");
 //update current number
 			if (percentTime !== true) {
-            currentNumber += keyValue;
+            currentNumber = parseFloat(currentNumber || "0") * 10 + parseFloat(keyValue);
             console.log(currentNumber);
 //update input field
             inputField.value = "$" + currentNumber;
@@ -53,7 +53,7 @@ function keyPress() {
 };
 
 //update total and histories when submitted
-function submitButton(plusOrMinus, plusOrMinusNumbers, plusOrMinusHistory) {
+function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHistory) {
 	if (percentTime === true) {
 		console.log('hello');
 	}
@@ -73,8 +73,20 @@ function submitButton(plusOrMinus, plusOrMinusNumbers, plusOrMinusHistory) {
 	})
 	plusOrMinusHistory.appendChild(ol);
 	
+	
+	//update total
+	if (plusOrMinusOrPercent == 'plus') {
+		runningTotal += currentNumber;
+		total.innerHTML = "$" + runningTotal;
+		console.log(runningTotal);
+	} else if (plusOrMinusOrPercent == 'minus') {
+		total.innerHTML -= currentNumber;
+	} else {
+		
+	}
+	
 	//reset current number and input field
-		currentNumber = [];
+		currentNumber = 0;
 		inputField.value = "$";
 	
 	}
