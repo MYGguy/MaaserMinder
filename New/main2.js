@@ -67,12 +67,16 @@ function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHisto
 	//write each number into the history
 	plusOrMinusNumbers.forEach(number => {
 		let li = document.createElement("li");
+		
+	if (plusOrMinusOrPercent == 'plus') {
 		li.textContent = "$" + number;
+	} else if (plusOrMinusOrPercent == 'minus') {
+		li.textContent = "-$" + number;
+	}
 		ol.appendChild(li);
 		
 	})
 	plusOrMinusHistory.appendChild(ol);
-	
 	
 	//update total
 	if (plusOrMinusOrPercent == 'plus') {
@@ -80,7 +84,8 @@ function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHisto
 		total.innerHTML = "$" + runningTotal;
 		console.log(runningTotal);
 	} else if (plusOrMinusOrPercent == 'minus') {
-		total.innerHTML -= currentNumber;
+		runningTotal -= currentNumber;
+		total.innerHTML = "$" + runningTotal;
 	} else {
 		
 	}
