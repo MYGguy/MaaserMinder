@@ -38,7 +38,7 @@ function keyPress() {
 //get key
             let keyValue = key.getAttribute("data-value");
 //update current number
-			if (percentTime !== true) {
+			if (!percentField.classList.contains('active')) {
             currentNumber = parseFloat(currentNumber || "0") * 10 + parseFloat(keyValue);
             console.log(currentNumber);
 //update input field
@@ -54,7 +54,8 @@ function keyPress() {
 
 //update total and histories when submitted
 function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHistory) {
-	if (percentTime === true) {
+	if (currentNumber !== 0) {
+	if (percentField.classList.contains('active')) {
 		console.log('hello');
 	}
 		
@@ -87,16 +88,16 @@ function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHisto
 		runningTotal -= currentNumber;
 		total.innerHTML = "$" + runningTotal;
 	} else {
-		
 	}
 	
 	//reset current number and input field
 		currentNumber = 0;
 		inputField.value = "$";
-	
+		percentField.value = "%";
+		percentFunction();
 	}
+}
 
 function percentFunction() {
-	percentTime = true;
 	percentField.classList.toggle("active");
 }
