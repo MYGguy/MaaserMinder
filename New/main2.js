@@ -58,6 +58,10 @@ function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHisto
 	if (percentField.classList.contains('active')) {
 		console.log('hello');
 	}
+	
+	if (percentTime = true) {
+		currentNumber = currentNumber * (percentNumber / 100);
+	}
 		
 	//add to history numbers array
 	plusOrMinusNumbers.unshift(currentNumber);
@@ -93,11 +97,16 @@ function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHisto
 	//reset current number and input field
 		currentNumber = 0;
 		inputField.value = "$";
+		
 		percentField.value = "%";
-		percentFunction();
+		percentField.classList.remove('active');
+		percentTime = false;
 	}
 }
 
 function percentFunction() {
+	percentTime = true;
 	percentField.classList.toggle("active");
+	percentField.value = "%";
+	percentNumber = [];
 }
