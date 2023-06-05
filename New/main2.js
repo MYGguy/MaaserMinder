@@ -105,7 +105,10 @@ function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHisto
 }
 
 function percentFunction() {
-	percentTime = true;
+	percentTime = !percentTime;
+	
+	console.log(percentTime);
+	
 	percentField.classList.toggle("active");
 	percentField.value = "%";
 	percentNumber = [];
