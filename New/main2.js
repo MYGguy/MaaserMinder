@@ -7,7 +7,7 @@ let plusHistoryNumbers = [];
 let minusHistoryNumbers = [];
 let runningTotal = 0;
 
-let percentTime;
+let percentTime = false;
 let percentNumber = [];
 
 //when page starts, assign variables
@@ -55,14 +55,19 @@ function keyPress() {
 //update total and histories when submitted
 function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHistory) {
 	if (currentNumber !== 0) {
-	if (percentField.classList.contains('active')) {
-		console.log('hello');
-	}
 	
-	if (percentTime = true) {
-		currentNumber = currentNumber * (percentNumber / 100);
-	}
+//	if (!minusButton.classList.contains("inactive")) {
+
+	if (percentNumber.length == 0 && percentTime) {
+		return;
+	} else {
 		
+	if (percentTime == true) {
+		currentNumber = currentNumber * (percentNumber / 100);
+		
+		percentFunction();
+	};
+
 	//add to history numbers array
 	plusOrMinusNumbers.unshift(currentNumber);
 	
@@ -73,12 +78,12 @@ function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHisto
 	plusOrMinusNumbers.forEach(number => {
 		let li = document.createElement("li");
 		
-	if (plusOrMinusOrPercent == 'plus') {
-		li.textContent = "$" + number;
-	} else if (plusOrMinusOrPercent == 'minus') {
-		li.textContent = "-$" + number;
-	}
-		ol.appendChild(li);
+			if (plusOrMinusOrPercent == 'plus') {
+			li.textContent = "$" + number;
+		} else if (plusOrMinusOrPercent == 'minus') {
+			li.textContent = "-$" + number;
+		}
+			ol.appendChild(li);
 		
 	})
 	plusOrMinusHistory.appendChild(ol);
@@ -87,29 +92,48 @@ function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHisto
 	if (plusOrMinusOrPercent == 'plus') {
 		runningTotal += currentNumber;
 		total.innerHTML = "$" + runningTotal;
-		console.log(runningTotal);
+		//console.log(runningTotal);
 	} else if (plusOrMinusOrPercent == 'minus') {
 		runningTotal -= currentNumber;
 		total.innerHTML = "$" + runningTotal;
-	} else {
 	}
 	
 	//reset current number and input field
 		currentNumber = 0;
 		inputField.value = "$";
+//		percentFunction();
 		
-		percentField.value = "%";
+		/*percentField.value = "%";
 		percentField.classList.remove('active');
-		percentTime = false;
+		percentTime = false;*/
+	}
 	}
 }
 
 function percentFunction() {
-	percentTime = !percentTime;
+//percentTime = !percentTime;
+	if (percentTime == false) {
+		
+	percentTime = true;
 	
-	console.log(percentTime);
+	percentField.classList.add("active");
+	minusButton.classList.add("inactive");
 	
-	percentField.classList.toggle("active");
+	//console.log(percentTime);
+	//console.log(minusButton.classList);
+	
+	} else if (percentTime == true) {
+	percentTime = false;
+		
+	percentField.classList.remove("active");
+	minusButton.classList.remove("inactive");
+	
+	//console.log(percentTime);
+	//console.log(minusButton.classList);
+	
 	percentField.value = "%";
 	percentNumber = [];
+	}
+	console.log(percentNumber.length);
+	
 }
