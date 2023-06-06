@@ -90,13 +90,11 @@ function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHisto
 	//update total
 	if (plusOrMinusOrPercent == 'plus') {
 		runningTotal += currentNumber;
-		runningTotal = parseFloat(runningTotal.toFixed(2));
-		total.innerHTML = "$" + runningTotal;
+		total.innerHTML = "$" + parseFloat(runningTotal.toFixed(2));
 		
 	} else if (plusOrMinusOrPercent == 'minus') {
 		runningTotal -= currentNumber;
-		runningTotal = parseFloat(runningTotal.toFixed(2))
-		total.innerHTML = "$" + runningTotal;
+		total.innerHTML = "$" + parseFloat(runningTotal.toFixed(2));
 	}
 	
 	//reset current number and input field
