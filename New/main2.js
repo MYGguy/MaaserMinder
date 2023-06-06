@@ -90,11 +90,12 @@ function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHisto
 	//update total
 	if (plusOrMinusOrPercent == 'plus') {
 		runningTotal += currentNumber;
-		total.innerHTML = "$" + parseFloat(runningTotal.toFixed(2));
-		console.log(plusHistoryNumbers);
-		console.log(runningTotal);
+		runningTotal = parseFloat(runningTotal.toFixed(2));
+		total.innerHTML = "$" + runningTotal;
+		
 	} else if (plusOrMinusOrPercent == 'minus') {
 		runningTotal -= currentNumber;
+		runningTotal = parseFloat(runningTotal.toFixed(2))
 		total.innerHTML = "$" + runningTotal;
 	}
 	
