@@ -62,6 +62,7 @@ function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHisto
 		
 	if (percentTime == true) {
 		currentNumber = currentNumber * (percentNumber / 100);
+		currentNumber = parseFloat(currentNumber.toFixed(2));
 		
 		percentFunction();
 	};
@@ -89,7 +90,9 @@ function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHisto
 	//update total
 	if (plusOrMinusOrPercent == 'plus') {
 		runningTotal += currentNumber;
-		total.innerHTML = "$" + runningTotal;
+		total.innerHTML = "$" + parseFloat(runningTotal.toFixed(2));
+		console.log(plusHistoryNumbers);
+		console.log(runningTotal);
 	} else if (plusOrMinusOrPercent == 'minus') {
 		runningTotal -= currentNumber;
 		total.innerHTML = "$" + runningTotal;
