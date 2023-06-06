@@ -55,8 +55,6 @@ function keyPress() {
 //update total and histories when submitted
 function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHistory) {
 	if (currentNumber !== 0) {
-	
-//	if (!minusButton.classList.contains("inactive")) {
 
 	if (percentNumber.length == 0 && percentTime) {
 		return;
@@ -92,7 +90,6 @@ function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHisto
 	if (plusOrMinusOrPercent == 'plus') {
 		runningTotal += currentNumber;
 		total.innerHTML = "$" + runningTotal;
-		//console.log(runningTotal);
 	} else if (plusOrMinusOrPercent == 'minus') {
 		runningTotal -= currentNumber;
 		total.innerHTML = "$" + runningTotal;
@@ -101,11 +98,6 @@ function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHisto
 	//reset current number and input field
 		currentNumber = 0;
 		inputField.value = "$";
-//		percentFunction();
-		
-		/*percentField.value = "%";
-		percentField.classList.remove('active');
-		percentTime = false;*/
 	}
 	}
 }
@@ -119,21 +111,13 @@ function percentFunction() {
 	percentField.classList.add("active");
 	minusButton.classList.add("inactive");
 	
-	//console.log(percentTime);
-	//console.log(minusButton.classList);
-	
 	} else if (percentTime == true) {
 	percentTime = false;
 		
 	percentField.classList.remove("active");
 	minusButton.classList.remove("inactive");
 	
-	//console.log(percentTime);
-	//console.log(minusButton.classList);
-	
 	percentField.value = "%";
 	percentNumber = [];
 	}
-	console.log(percentNumber.length);
-	
 }
