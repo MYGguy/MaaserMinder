@@ -37,8 +37,9 @@ function keyPress() {
         key.addEventListener("click", () => {
 //get key
             let keyValue = key.getAttribute("data-value");
+
 //update current number
-			if (!percentField.classList.contains('active')) {
+			if (!percentTime) {
             currentNumber = parseFloat(currentNumber || "0") * 10 + parseFloat(keyValue);
             console.log(currentNumber);
 //update input field
