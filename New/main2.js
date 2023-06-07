@@ -64,10 +64,11 @@ function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHisto
 	if (percentNumber.length == 0 && percentTime) {
 		return;
 	} else {
+		currentNumber = parseFloat(currentNumber);
 		
 	if (percentTime == true) {
 		currentNumber = currentNumber * (percentNumber / 100);
-		currentNumber = parseFloat(currentNumber.toFixed(2));
+		
 		
 		percentFunction();
 	};
@@ -83,9 +84,9 @@ function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHisto
 		let li = document.createElement("li");
 		
 			if (plusOrMinusOrPercent == 'plus') {
-			li.textContent = "$" + number;
+			li.textContent = "$" + number.toFixed(2);
 		} else if (plusOrMinusOrPercent == 'minus') {
-			li.textContent = "-$" + number;
+			li.textContent = "-$" + number.toFixed(2);
 		}
 			ol.appendChild(li);
 		
@@ -95,6 +96,7 @@ function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHisto
 	//update total
 	if (plusOrMinusOrPercent == 'plus') {
 		runningTotal += currentNumber;
+		//total.innerHTML = "$" + parseFloat(runningTotal.toFixed(2));
 		total.innerHTML = "$" + parseFloat(runningTotal.toFixed(2));
 		
 	} else if (plusOrMinusOrPercent == 'minus') {
