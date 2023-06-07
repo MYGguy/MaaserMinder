@@ -40,7 +40,11 @@ function keyPress() {
 
 //update current number
 			if (!percentTime) {
-            currentNumber = parseFloat(currentNumber || "0") * 10 + parseFloat(keyValue);
+            //currentNumber = parseFloat(currentNumber || "0") * 10 + parseFloat(keyValue);
+            //currentNumber = currentNumber.substring(1) +  keyValue;
+            //inputField.value = currentNumber;
+            inputField.value += keyValue;
+            currentNumber = inputField.value.substring(1);
             console.log(currentNumber);
 //update input field
             inputField.value = "$" + currentNumber;
