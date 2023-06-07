@@ -40,9 +40,6 @@ function keyPress() {
 
 //update current number
 			if (!percentTime) {
-            //currentNumber = parseFloat(currentNumber || "0") * 10 + parseFloat(keyValue);
-            //currentNumber = currentNumber.substring(1) +  keyValue;
-            //inputField.value = currentNumber;
             inputField.value += keyValue;
             currentNumber = inputField.value.substring(1);
             console.log(currentNumber);
@@ -81,12 +78,13 @@ function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHisto
 	
 	//write each number into the history
 	plusOrMinusNumbers.forEach(number => {
+		number = number.toFixed(2);
 		let li = document.createElement("li");
 		
 			if (plusOrMinusOrPercent == 'plus') {
-			li.textContent = "$" + number.toFixed(2);
+			li.textContent = "$" + number;
 		} else if (plusOrMinusOrPercent == 'minus') {
-			li.textContent = "-$" + number.toFixed(2);
+			li.textContent = "-$" + number;
 		}
 			ol.appendChild(li);
 		
@@ -96,7 +94,6 @@ function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHisto
 	//update total
 	if (plusOrMinusOrPercent == 'plus') {
 		runningTotal += currentNumber;
-		//total.innerHTML = "$" + parseFloat(runningTotal.toFixed(2));
 		total.innerHTML = "$" + parseFloat(runningTotal.toFixed(2));
 		
 	} else if (plusOrMinusOrPercent == 'minus') {
