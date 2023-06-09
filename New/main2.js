@@ -115,13 +115,13 @@ function percentFunction() {
 	percentTime = true;
 	
 	percentField.classList.add("active");
-	minusButton.classList.add("inactive");
+//	minusButton.classList.add("inactive");
 	
 	} else if (percentTime == true) {
 	percentTime = false;
 		
 	percentField.classList.remove("active");
-	minusButton.classList.remove("inactive");
+//	minusButton.classList.remove("inactive");
 	
 	percentField.value = "%";
 	percentNumber = [];

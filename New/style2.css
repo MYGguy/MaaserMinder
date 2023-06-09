@@ -64,9 +64,9 @@ body {
 	font-size: 1.5em;
 }
 
-.inactive {
+/*.inactive {
 	background-color: slategray;
-}
+}*/
 
 #minus-button {
 	float: left;
@@ -134,13 +134,23 @@ body {
 	align-items: flex-start;
 	justify-content: space-between;
 	
+	text-align: left;
+	
 	margin: 0 auto;
 	padding: 1vw 5vw;
 	
-	width: 65vw;
+	width: 80vw;
 	height: 100vw;
 	background-color: whitesmoke;
 	border-radius: 5vw;
+}
+
+#minus-history {
+	float: left;
+}
+
+#plus-history {
+	float: right;
 }
 
 li {
