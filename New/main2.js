@@ -37,18 +37,22 @@ function keyPress() {
         key.addEventListener("click", () => {
 //get key
             let keyValue = key.getAttribute("data-value");
-
 //update current number
-			if (!percentTime) {
+			if (!percentTime && keyValue !== 'backspace') {
             inputField.value += keyValue;
             currentNumber = inputField.value.substring(1);
             console.log(currentNumber);
 //update input field
-            inputField.value = "$" + currentNumber;
+            //inputField.value = "$" + currentNumber;
             
-			} else {
+			} else if (percentTime){
 				percentNumber += keyValue;
 				percentField.value = percentNumber + "%";
+				
+			} else if (keyValue == 'backspace' && inputField.value !== '$') {
+				inputField.value = inputField.value.slice(0, -1)
+				currentNumber = inputField.value.substring(1);
+				console.log(currentNumber);
 			}
         });
     });
@@ -56,7 +60,7 @@ function keyPress() {
 
 //update total and histories when submitted
 function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHistory) {
-	if (currentNumber !== 0) {
+	if (currentNumber !== 0 && currentNumber !== '') {
 
 	if (percentNumber.length == 0 && percentTime) {
 		return;
