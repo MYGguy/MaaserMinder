@@ -45,14 +45,26 @@ function keyPress() {
 //update input field
             //inputField.value = "$" + currentNumber;
             
-			} else if (percentTime){
+			} else if (percentTime && keyValue !== 'backspace'){
 				percentNumber += keyValue;
 				percentField.value = percentNumber + "%";
+				console.log(percentNumber);
 				
 			} else if (keyValue == 'backspace' && inputField.value !== '$') {
+				if (percentTime == false) {
 				inputField.value = inputField.value.slice(0, -1)
 				currentNumber = inputField.value.substring(1);
 				console.log(currentNumber);
+				} else if (percentTime) {
+					// remove "%" before slicing
+					percentNumber = percentField.value.replace('%', '');
+					// slice one digit from the end
+					percentNumber = percentNumber.slice(0, -1);
+					// update the percentField
+					percentField.value = percentNumber + "%";
+					console.log(percentNumber);
+				console.log(percentNumber);
+				}
 			}
         });
     });
