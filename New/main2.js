@@ -43,7 +43,6 @@ function keyPress() {
             currentNumber = inputField.value.substring(1);
             console.log(currentNumber);
 //update input field
-            //inputField.value = "$" + currentNumber;
             
 			} else if (percentTime && keyValue !== 'backspace'){
 				percentNumber += keyValue;
@@ -63,7 +62,6 @@ function keyPress() {
 					// update the percentField
 					percentField.value = percentNumber + "%";
 					console.log(percentNumber);
-				console.log(percentNumber);
 				}
 			}
         });
