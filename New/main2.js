@@ -95,12 +95,20 @@ function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHisto
 		number = number.toFixed(2);
 		let li = document.createElement("li");
 		
-			if (plusOrMinusOrPercent == 'plus') {
+		let removeBtn = document.createElement("button");
+		removeBtn.textContent = "X";
+		removeBtn.id = "remove-button";
+		removeBtn.addEventListener("click", function () {
+			removeHistoryFunction(index, number, plusOrMinus);
+		})
+		
+		if (plusOrMinusOrPercent == 'plus') {
 			li.textContent = "$" + number;
 		} else if (plusOrMinusOrPercent == 'minus') {
 			li.textContent = "-$" + number;
 		}
-			ol.appendChild(li);
+			ol.appendChild(li)
+			ol.appendChild(removeBtn);
 		
 	})
 	plusOrMinusHistory.appendChild(ol);
