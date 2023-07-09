@@ -72,13 +72,13 @@ function keyPress() {
 function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHistory) {
 	if (currentNumber !== 0 && currentNumber !== '') {
 
-	if (percentNumber.length == 0 && percentTime) {
+		if (percentNumber.length == 0 && percentTime) {
 		return;
-	} else {
-		currentNumber = parseFloat(currentNumber);
+		} else {
+			currentNumber = parseFloat(currentNumber);
 		
-	if (percentTime == true) {
-		currentNumber = currentNumber * (percentNumber / 100);
+		if (percentTime == true) {
+			currentNumber = currentNumber * (percentNumber / 100);
 		
 		
 		percentFunction();
@@ -91,7 +91,7 @@ function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHisto
 	plusOrMinusHistory.innerHTML = '';
 	
 	//write each number into the history
-	plusOrMinusNumbers.forEach(number => {
+	plusOrMinusNumbers.forEach((number, index) => {
 		number = number.toFixed(2);
 		let li = document.createElement("li");
 		
@@ -99,7 +99,7 @@ function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHisto
 		removeBtn.textContent = "X";
 		removeBtn.id = "remove-button";
 		removeBtn.addEventListener("click", function () {
-			removeHistoryFunction(index, number, plusOrMinus);
+			removeHistoryFunction(index, number, plusOrMinusOrPercent);
 		})
 		
 		if (plusOrMinusOrPercent == 'plus') {
@@ -147,5 +147,13 @@ function percentFunction() {
 	
 	percentField.value = "%";
 	percentNumber = [];
+	}
+}
+
+function removeHistoryFunction(index, number, plusOrMinusOrPercent) {
+	if (plusOrMinusOrPercent == 'plus') {
+		plusHistoryNumbers.splice(index, 1);
+		console.log(plusHistoryNumbers);
+		//submitButton('plus', plusHistoryNumbers, plusHistory);
 	}
 }
