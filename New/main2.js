@@ -113,6 +113,12 @@ function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHisto
 	})
 	plusOrMinusHistory.appendChild(ol);
 	
+	updateTotal(currentNumber);
+	
+	}
+}
+
+function updateTotal(currentNumber) {
 	//update total
 	if (plusOrMinusOrPercent == 'plus') {
 		runningTotal += currentNumber;
@@ -122,12 +128,10 @@ function submitButton(plusOrMinusOrPercent, plusOrMinusNumbers, plusOrMinusHisto
 		runningTotal -= currentNumber;
 		total.innerHTML = "$" + parseFloat(runningTotal.toFixed(2));
 	}
-	
-	//reset current number and input field
+		//reset current number and input field
 		currentNumber = 0;
 		inputField.value = "$";
-	}
-	}
+		}
 }
 
 function percentFunction() {
